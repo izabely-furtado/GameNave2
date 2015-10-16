@@ -7,9 +7,39 @@ __date__ = "$14/10/2015 08:20:58$"
 
 class FabricaAtributoNave(object):
     
-    def __init__(self):
-        self.esbarrar = 0
-        self.danoPorTiro = 0
+    """-----AÇOES-------"""
+    @abc.abstractmethod
+    def __move__(self):
+        return 0
+        
+    @abc.abstractmethod
+    def __atira__(self):
+        return 0
+    
+    @abc.abstractmethod
+    def explode(self, figuraExplosao):
+        return 0
+    
+    """"----ATRIBUTOS-----"""
+    @abc.abstractmethod
+    def __criaSom__(self, som):
+        return 0
+
+    @abc.abstractmethod
+    def __criaFigura__(self, figura):
+        return 0
+    
+    @abc.abstractmethod
+    def __criaPosicao__(self):
+        return 0
+    
+    @abc.abstractmethod
+    def __criaArea__(self):
+        return 0
+    
+    @abc.abstractmethod
+    def __criaTiro__(self):
+        return 0
     
     @abc.abstractmethod
     def __criaVelocidade__(self):
@@ -28,5 +58,6 @@ class FabricaAtributoNave(object):
         return 0
     
     @abc.abstractmethod
-    def __criaExplosao__(self):
+    def __criaExplosao__(self, figuraExplosao):
         return 0;
+    

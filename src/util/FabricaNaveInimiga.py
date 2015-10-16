@@ -5,5 +5,13 @@
 __author__ = "20121bsi0040"
 __date__ = "$14/10/2015 08:21:43$"
 
-if __name__ == "__main__":
-    print ("Hello World")
+class FabricaNaveInimiga(FabricaNave):
+    def __init__(self, nome, figuraNave, figuraExplosao, som):
+        super(nome, figuraNave, figuraExplosao, som)
+        self.pontuacaoDerrotar = 0
+
+    @abc.override
+    def move(self):
+        self.posicao["y"] += self.velocidade["y"]
+        self.start_area()
+
