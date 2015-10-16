@@ -14,3 +14,7 @@ class Resistencia(object):
     def __init__(self):
         self.esbarrar = 0
         self.danoPorTiro = 0
+        
+    def __init__(self, esbarrar, danoPorTiro):
+        self.esbarrar = esbarrar
+        self.dadoPorTiro = danoPorTiro

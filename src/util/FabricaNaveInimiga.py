@@ -13,5 +13,5 @@ class FabricaNaveInimiga(FabricaNave):
     @abc.override
     def move(self):
         self.posicao["y"] += self.velocidade["y"]
-        self.start_area()
+        self.criaArea()
 

@@ -5,8 +5,28 @@
 __author__ = "IzabelyFurtado"
 __date__ = "$15/10/2015 20:23:00$"
 
-class FabricaNaveFuga(object):
-    def __init__(self):
-        self.esbarrar = 0
-        self.danoPorTiro = 0
+class FabricaNaveFuga(FabricaNaveInimiga):
+    def __init__(self, figuraNave, figuraExplosao, som):
+        super('Nave de Fuga', figuraNave, figuraExplosao, som)
+        self.pontuacaoDerrotar = 50
+        
+    """---------------AÇOES--------------------------------------------------"""
+    @abc.override
+    def move(self):
+        self.posicao["y"] += self.velocidade["y"]
+        self.criaArea()
+        
+    """--------------ATRIBUTO------------------------------------------------"""
+        
+    @abc.override
+    def criaVelocidade(self):
+        return {"x": 0, "y": 3}
+    
+    @abc.override
+    def criaMovimento(self):
+        return Movimento.Movimento()
+    
+    @abc.override
+    def criaResistencia(self):
+        return Resitencia.Resistencia(5,1)
 

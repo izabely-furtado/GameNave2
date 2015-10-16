@@ -2,7 +2,7 @@ import pygame
 from pygame.locals import *
 #import sys
 from CamadaDominioProblema.Habilidades import Resitencia
-from CamadaDominioProblema.Habilidades import Municao
+#from CamadaDominioProblema.Habilidades import Municao
 
 __author__ = "20121bsi0040"
 __date__ = "$14/10/2015 08:20:28$"
@@ -22,26 +22,18 @@ class FabricaNave(FabricaAtributoNave):
     
         self.tipo = nome
         self.velocidade = self.criaVelocidade()
-        self.resistencia = self.__criaResistencia()
-        self.municao = self.criaMunicao()
+        self.resistencia = self.criaResistencia()
         self.explosao = criaExplosao(figuraExplosao)
         self.atingido = False
 
     """-----------AÇOES------------------------------------------------------"""
     def get_area(self):
         return self.area
-
-    @abc.override
-    def atira(self):
-        if self.cria_tiro(self.posicao) != "ERRO":
-            self.cria_tiro(self.posicao)
-        self.armamento[-1].atira()
-        self.buzina()
     
     @abc.override
     def move(self):
         self.posicao["y"] += self.velocidade["y"]
-        self.start_area()
+        self.criaArea()
     
     @abc.override
     def explode(self, figuraExplosao):
@@ -61,20 +53,12 @@ class FabricaNave(FabricaAtributoNave):
         return f
     
     def criaPosicao(self):
-        return {"x": 0, "y": 0}
+        return {"x": 0, "y": 0, "direcao": "DIREITA"}
 
     def criaArea(self):
         self.area = Rect(self.posicao["x"], self.posicao["y"], self.figura.get_width(), self.figura.get_height())
         return Rect(self.posicao["x"], self.posicao["y"], self.figura.get_width(), self.figura.get_height())
-
-    @abc.override
-    def criaTiro(self, pos_nave):
-        m = Municao.Municao(pos_nave)
-        if m.posicao == {}:
-            m = "ERRO"
-        else:
-            self.armamento.append(m)
-        return m
+    
     
     @abc.override
     def criaVelocidade(self):
@@ -87,10 +71,6 @@ class FabricaNave(FabricaAtributoNave):
     @abc.override
     def criaResistencia(self):
         return Resitencia.Resistencia()
-    
-    @abc.override
-    def criaMunicao(self):
-        return []
     
     @abc.override
     def criaExplosao(self, figuraExplosao):
