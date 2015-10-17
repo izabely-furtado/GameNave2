@@ -23,10 +23,6 @@ class FabricaNaveFuga(FabricaNaveInimiga):
         return {"x": 0, "y": 3}
     
     @abc.override
-    def criaMovimento(self):
-        return Movimento.Movimento()
-    
-    @abc.override
     def criaResistencia(self):
         return Resitencia.Resistencia(5,1)
 

@@ -7,14 +7,23 @@ __date__ = "$15/10/2015 20:22:42$"
 
 class FabricaNaveIA(FabricaNaveInimiga):
     def __init__(self, figuraNave, figuraExplosao, som):
-        super('Nave Inteligente', figuraNave, figuraExplosao, som)
+        super('Nave Perseguidora', figuraNave, figuraExplosao, som)
         self.pontuacaoDerrotar = 40
         self.municao = self.criaMunicao()
 
     """---------------AÇOES--------------------------------------------------"""
     @abc.override
-    def move(self):
-        self.posicao["y"] += self.velocidade["y"]
+    def move(self, posicaoJogador):
+        if (posicaoJogador["x"] > self.posicao["x"]):
+            self.posicao["x"] += self.velocidade["x"]
+        elif (posicaoJogador["x"] < self.posicao["x"]):
+            self.posicao["x"] -= self.velocidade["x"]
+        
+        if (posicaoJogador["y"] > self.posicao["y"]):
+            self.posicao["y"] += self.velocidade["y"]
+        elif (posicaoJogador["y"] < self.posicao["y"]):
+            self.posicao["y"] -= self.velocidade["y"]
+        
         self.criaArea()
         
     @abc.override
@@ -42,10 +51,6 @@ class FabricaNaveIA(FabricaNaveInimiga):
     @abc.override
     def criaVelocidade(self):
         return {"x": 0, "y": 1}
-    
-    @abc.override
-    def criaMovimento(self):
-        return Movimento.Movimento()
     
     @abc.override
     def criaResistencia(self):

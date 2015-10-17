@@ -65,10 +65,6 @@ class FabricaNave(FabricaAtributoNave):
         return {"x": 0, "y": 2}
     
     @abc.override
-    def criaMovimento(self):
-        return Movimento.Movimento()
-    
-    @abc.override
     def criaResistencia(self):
         return Resitencia.Resistencia()
     

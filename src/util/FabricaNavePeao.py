@@ -17,7 +17,7 @@ LIM_HEIGTH = HEIGTH - 50
 
 class FabricaNaveGrupo(FabricaNaveInimiga):
     def __init__(self, figuraNave, figuraExplosao, som):
-        super('Nave de Grupo', figuraNave, figuraExplosao, som)
+        super('Nave Peão', figuraNave, figuraExplosao, som)
         self.pontuacaoDerrotar = 10
         
     """---------------AÇOES--------------------------------------------------"""
@@ -28,15 +28,14 @@ class FabricaNaveGrupo(FabricaNaveInimiga):
                 self.posicao["x"] += self.velocidade["x"]
             else:
                 self.posicao["direcao"] = "ESQUERDA"
-                self.posicao["x"] -= self.velocidade["x"]
+                self.posicao["y"] += self.velocidade["y"] 
         elif (self.posicao["direcao"] == "ESQUERDA"):
             if (self.posicao["x"] > 0):
                 self.posicao["x"] -= self.velocidade["x"]
             else:
                 self.posicao["direcao"] = "DIREITA"
-                self.posicao["x"] += self.velocidade["x"]
+                self.posicao["y"] += self.velocidade["y"] 
         
-        self.posicao["y"] += self.velocidade["y"]    
         self.criaArea()
         
     """--------------ATRIBUTO------------------------------------------------"""

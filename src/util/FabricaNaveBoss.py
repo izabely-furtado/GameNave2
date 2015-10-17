@@ -1,40 +1,48 @@
 # To change this license header, choose License Headers in Project Properties.
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
-#import pygame
+
 from pygame.locals import *
 #import sys
 from CamadaDominioProblema.Habilidades import Resitencia
 #from CamadaDominioProblema.Habilidades import Municao
 __author__ = "IzabelyFurtado"
-__date__ = "$15/10/2015 20:21:41$"
+__date__ = "$15/10/2015 20:29:33$"
 
 WIDTH = 1000
 HEIGTH = 600
 LIM_WIDTH = WIDTH - 65
 LIM_HEIGTH = HEIGTH - 50
 
-class FabricaNavePerdida(FabricaNaveInimiga):
+class FabricaNaveBoss(FabricaNaveInimiga):
     def __init__(self, figuraNave, figuraExplosao, som):
-        super('Nave Perdida', figuraNave, figuraExplosao, som)
-        self.pontuacaoDerrotar = 20
+        super('BOSS!!', figuraNave, figuraExplosao, som)
+        self.pontuacaoDerrotar = 200
         self.municao = self.criaMunicao()
 
     """---------------AÇOES--------------------------------------------------"""
     @abc.override
     def move(self):
         aleatorio = randint(0, 10)
-        if (self.posicao["x"] < LIM_WIDTH and self.posicao["x"] > 0):
-            if (aleatorio > 5):
-                self.posicao["x"] += self.velocidade["x"]
+        if (self.posicao["x"] < LIM_WIDTH - aleatorio and self.posicao["x"] > 0 + aleatorio):
+            if (aleatorio < 5):
+                self.posicao["x"] += self.velocidade["x"] + aleatorio
             else:
-                self.posicao["x"] -= self.velocidade["x"]
+                self.posicao["x"] -= self.velocidade["x"] - aleatorio
         elif (self.posicao["x"] == LIM_WIDTH):
             self.posicao["x"] -= self.velocidade["x"]
         elif (self.posicao["x"] == 0):
             self.posicao["x"] += self.velocidade["x"]
         
-        self.posicao["y"] += self.velocidade["y"]    
+        if (self.posicao["y"] < LIM_HEIGTH - aleatorio and self.posicao["y"] > 0 + aleatorio):
+            if (aleatorio < 5):
+                if (self.posicao["direcao"] != "ABAIXO"):
+                    self.posicao["y"] += self.velocidade["y"] + aleatorio
+                    self.posicao["direcao"] = "ABAIXO"
+                else:
+                    self.posicao["y"] -= self.velocidade["y"] - aleatorio
+                    self.posicao["direcao"] = "ACIMA"
+
         self.criaArea()
     
     @abc.override
@@ -65,4 +73,4 @@ class FabricaNavePerdida(FabricaNaveInimiga):
     
     @abc.override
     def criaResistencia(self):
-        return Resitencia.Resistencia(2,2)
+        return Resitencia.Resistencia(10,4)
