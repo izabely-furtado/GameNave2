@@ -5,7 +5,7 @@
 __author__ = "IzabelyFurtado"
 __date__ = "$15/10/2015 20:22:42$"
 
-class FabricaNaveIA(FabricaNaveInimiga):
+class FabricaNavePersegue(FabricaNaveInimiga):
     def __init__(self, figuraNave, figuraExplosao, som):
         super('Nave Perseguidora', figuraNave, figuraExplosao, som)
         self.pontuacaoDerrotar = 40
