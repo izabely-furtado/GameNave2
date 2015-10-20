@@ -12,24 +12,16 @@ HEIGTH = 600
 LIM_WIDTH = WIDTH - 65
 LIM_HEIGTH = HEIGTH - 50
 
-class FabricaNave(FabricaAtributoNave):
+class FabricaNave(FabricaObjeto):
     def __init__(self, nome, figuraNave, figuraExplosao, som):
         #dados de qualquer objeto de tela - rever isso
-        self.posicao = self.criaPosicao()
+        super(nome, fuguraNave)
         self.som = self.criaSom(som)
-        self.figura = self.criaFigura(figuraNave)
-        self.area = self.criaArea()
-    
-        self.tipo = nome
-        self.velocidade = self.criaVelocidade()
         self.resistencia = self.criaResistencia()
         self.explosao = criaExplosao(figuraExplosao)
         self.atingido = False
 
     """-----------AÇOES------------------------------------------------------"""
-    def get_area(self):
-        return self.area
-    
     @abc.override
     def move(self):
         self.posicao["y"] += self.velocidade["y"]
@@ -47,19 +39,6 @@ class FabricaNave(FabricaAtributoNave):
         pygame.mixer.init(frequency=22050, size=-16, channels=2, buffer=4096)
         return pygame.mixer.Sound(som)
 
-    @staticmethod
-    def criaFigura(figura):
-        f = pygame.image.load(figura).convert_alpha()
-        return f
-    
-    def criaPosicao(self):
-        return {"x": 0, "y": 0, "direcao": "DIREITA"}
-
-    def criaArea(self):
-        self.area = Rect(self.posicao["x"], self.posicao["y"], self.figura.get_width(), self.figura.get_height())
-        return Rect(self.posicao["x"], self.posicao["y"], self.figura.get_width(), self.figura.get_height())
-    
-    
     @abc.override
     def criaVelocidade(self):
         return {"x": 0, "y": 2}

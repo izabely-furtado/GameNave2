@@ -5,7 +5,7 @@
 __author__ = "20121bsi0040"
 __date__ = "$14/10/2015 08:21:32$"
 
-class NaveGrupoBuilder(NaveBuilder):
+class NaveJogadorBuilder(NaveBuilder):
     def __init__(self, naveEscolhida):
         super()
         self.buildDano()

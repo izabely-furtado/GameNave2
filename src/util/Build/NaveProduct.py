@@ -23,10 +23,6 @@ class NaveProduct(Object):
     def getNave(self):
         return self.nave
     
-    def perdeVida(self):
-        if (self.nave.vidas > 0):
-            self.nave.vidas -=1
-    
     def sofreDano(self,dano):
         if (dano > 0):
             self.dano += dano

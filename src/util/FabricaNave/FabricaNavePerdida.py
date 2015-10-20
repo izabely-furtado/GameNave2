@@ -6,6 +6,7 @@ from pygame.locals import *
 #import sys
 from CamadaDominioProblema.Habilidades import Resitencia
 #from CamadaDominioProblema.Habilidades import Municao
+import random
 __author__ = "IzabelyFurtado"
 __date__ = "$15/10/2015 20:21:41$"
 
@@ -23,7 +24,7 @@ class FabricaNavePerdida(FabricaNaveInimiga):
     """---------------AÇOES--------------------------------------------------"""
     @abc.override
     def move(self):
-        aleatorio = randint(0, 10)
+        aleatorio = random.randint(0, 10)
         if (self.posicao["x"] < LIM_WIDTH and self.posicao["x"] > 0):
             if (aleatorio > 5):
                 self.posicao["x"] += self.velocidade["x"]

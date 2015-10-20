@@ -12,19 +12,7 @@ class FabricaAtributoNave(object):
     def __move__(self):
         return 0
         
-    @abc.abstractmethod
-    def __atira__(self):
-        return 0
-    
-    @abc.abstractmethod
-    def explode(self, figuraExplosao):
-        return 0
-    
     """"----ATRIBUTOS-----"""
-    @abc.abstractmethod
-    def __criaSom__(self, som):
-        return 0
-
     @abc.abstractmethod
     def __criaFigura__(self, figura):
         return 0
@@ -38,26 +26,6 @@ class FabricaAtributoNave(object):
         return 0
     
     @abc.abstractmethod
-    def __criaTiro__(self):
-        return 0
-    
-    @abc.abstractmethod
     def __criaVelocidade__(self):
         return 0
-    
-    @abc.abstractmethod
-    def __criaMovimento__(self):
-        return 0
-    
-    @abc.abstractmethod
-    def __criaResistencia__(self):
-        return 0
-    
-    @abc.abstractmethod
-    def __criaMunicao__(self):
-        return 0
-    
-    @abc.abstractmethod
-    def __criaExplosao__(self, figuraExplosao):
-        return 0;
     

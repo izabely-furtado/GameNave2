@@ -8,9 +8,6 @@ __date__ = "$14/10/2015 08:21:32$"
 class FabricaNaveJogador(FabricaNave):
     def __init__(self, nome, figuraNave, figuraExplosao, som):
         super(nome, figuraNave, figuraExplosao, som)
-        self.fase = 0
-        self.pontuacao = 0
-        self.vidas = 3
         self.tempoMissel = 0
         self.municao = self.criaMunicao()
 
@@ -49,5 +46,6 @@ class FabricaNaveJogador(FabricaNave):
     @abc.override
     def criaResistencia(self):
         return Resitencia.Resistencia(10,2)
+    
 
 
