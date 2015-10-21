@@ -19,8 +19,7 @@ class FabricaNave(FabricaObjeto):
         self.som = self.criaSom(som)
         self.resistencia = self.criaResistencia()
         self.explosao = criaExplosao(figuraExplosao)
-        self.atingido = False
-
+        
     """-----------AÇOES------------------------------------------------------"""
     @abc.override
     def move(self):
