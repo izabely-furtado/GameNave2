@@ -6,8 +6,8 @@ __author__ = "IzabelyFurtado"
 __date__ = "$20/10/2015 08:15:03$"
 
 class FabricaVida(FabricaItem):
-    def __init__(self, nome, imagemEscolhida, preco, probabilidade):
-        super('Vida', imagemEscolhida, 100, 30)
+    def __init__(self):
+        super('Vida', "/Imagens/Vida.png", 100, 20)
         
     @abc.abstract
     def modificacoes(self, jogador):

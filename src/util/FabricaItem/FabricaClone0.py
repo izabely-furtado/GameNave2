@@ -3,12 +3,10 @@
 # and open the template in the editor.
 
 __author__ = "IzabelyFurtado"
-__date__ = "$20/10/2015 08:15:21$"
+__date__ = "$20/10/2015 08:14:09$"
 
-class FabricaRestaura(FabricaItem):
+class FabricaClone0(FabricaClone):
     def __init__(self):
-        super('Restaura', "/Imagens/Restaura.png", 100, 30)
+        super("/Imagens/Clone0.png")
         
-    @abc.abstract
-    def modificacoes(self, jogador):
-        jogador.restaura(jogador)
+    

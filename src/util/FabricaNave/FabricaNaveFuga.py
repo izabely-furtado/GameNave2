@@ -14,13 +14,14 @@ class FabricaNaveFuga(FabricaNaveInimiga):
     @abc.override
     def move(self):
         self.posicao["y"] += self.velocidade["y"]
+        self.posicao["x"] += self.velocidade["x"]
         self.criaArea()
         
     """--------------ATRIBUTO------------------------------------------------"""
         
     @abc.override
     def criaVelocidade(self):
-        return {"x": 0, "y": 3}
+        return {"x": 3, "y": 3}
     
     @abc.override
     def criaResistencia(self):
