@@ -1,0 +1,524 @@
+<!doctype html>
+<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
+<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on https://github.com/jonrohan -->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen">
+  <link rel="stylesheet" href="stylesheets/github-dark.css">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/script.js"></script>
+
+  <title>Gamenave2</title>
+  <meta name="description" content="Trabalho a ser feito para o professor de POO2, como um dos requisitos para nota">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <header>
+      <h1 class="title">Gamenave2</h1>
+    </header>
+    <div id="container">
+      <p class="tagline">Trabalho a ser feito para o professor de POO2, como um dos requisitos para nota</p>
+      <div id="main" role="main">
+        <div class="download-bar">
+        <div class="inner">
+          <a href="https://github.com/izabely-furtado/GameNave2/tarball/master" class="download-button tar"><span>Download</span></a>
+          <a href="https://github.com/izabely-furtado/GameNave2/zipball/master" class="download-button zip"><span>Download</span></a>
+          <a href="https://github.com/izabely-furtado/GameNave2" class="code">View Gamenave2 on GitHub</a>
+        </div>
+        <span class="blc"></span><span class="trc"></span>
+        </div>
+        <article class="markdown-body">
+          <h1 align="center">
+<a id="trabalho-da-disciplina-" class="anchor" href="#trabalho-da-disciplina-" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+TRABALHO DA DISCIPLINA <p></p>
+</h1>
+
+<h1 align="center">
+<a id="programaÇÃo-orientada-a-objetos-2" class="anchor" href="#programa%C3%87%C3%83o-orientada-a-objetos-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+PROGRAMAÇÃO ORIENTADA A OBJETOS 2<p></p>
+</h1>
+
+<div>
+<br>
+</div>
+
+<h1 align="center">
+<a id="projetojogo-nave" class="anchor" href="#projetojogo-nave" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+Projeto:
+Jogo Nave<p></p>
+</h1>
+
+<h1>
+<a id="1registro-dealterações" class="anchor" href="#1registro-dealtera%C3%A7%C3%B5es" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+1.    
+Registro de
+Alterações<p></p>
+</h1>
+
+<table border="1" cellpadding="0" cellspacing="0">
+ <tbody>
+<tr>
+  <td valign="bottom" width="64">
+  <div>
+<b>Versão</b><p></p>
+</div>
+</td>
+  <td valign="bottom" width="123">
+  <div>
+<b>Responsável</b><p></p>
+</div>
+</td>
+  <td valign="bottom" width="113">
+  <div>
+<b>Data</b><p></p>
+</div>
+</td>
+  <td valign="bottom" width="276">
+  <div>
+<b>Alterações</b><p></p>
+</div>
+</td>
+ </tr>
+<tr>
+  <td valign="bottom" width="64">
+  <div>
+2<p></p>
+</div>
+</td>
+  <td valign="bottom" width="123">
+  <div>
+Izabely
+  Corrêa<p></p>
+</div>
+<div>
+Gislaine
+  Almeida<p></p>
+</div>
+</td>
+  <td valign="bottom" width="113">
+  <div>
+21/10/2015<p></p>
+</div>
+</td>
+  <td valign="bottom" width="276">
+  <div>
+Diagrama de
+  Classes<p></p>
+</div>
+<div>
+Diagrama de
+  Composição MVC<p></p>
+</div>
+<div>
+Diagrama de
+  Padrões<p></p>
+</div>
+<div>
+Explicação
+  do uso dos Padrões <p></p>
+</div>
+<div>
+Descrição da
+  Utilização MVC<p></p>
+</div>
+<div>
+Refatoração<p></p>
+</div>
+</td>
+ </tr>
+</tbody>
+</table>
+
+<div>
+<br>
+</div>
+
+<h1>
+<a id="2introdução" class="anchor" href="#2introdu%C3%A7%C3%A3o" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+2.    
+Introdução<p></p>
+</h1>
+
+<div>
+Este documento apresenta um relatório de projeto e
+engenharia do sistema de um jogo de naves. Este documento está organizado da
+seguinte forma: a seção 3 apresenta o padrão Fábrica utilizado, seus
+respectivos  diagramas, motivações e
+explicações, a seção 4 apresenta o padrão Builder utilizado, seus
+respectivos  diagramas, motivações e
+explicações , a seção 5 demonstra o diagrama de classes e o de composição de
+estruturas e descreve a utilização MVC, a seção 6 demonstra a diferença
+evidenciada com a refatoração do código.<p></p>
+</div>
+
+<h1>
+<a id="3padrão-fábrica" class="anchor" href="#3padr%C3%A3o-f%C3%A1brica" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+3.    
+Padrão Fábrica<p></p>
+</h1>
+
+<div>
+Aplicada a Objetos nas Fases do Jogo: Naves e Itens<p></p>
+</div>
+
+<div>
+<img height="560" width="567"><p></p>
+</div>
+
+<h2>
+<a id="31motivo-dautilização" class="anchor" href="#31motivo-dautiliza%C3%A7%C3%A3o" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+3.1.         
+Motivo da
+Utilização<p></p>
+</h2>
+
+<div>
+O padrão em questão foi utilizado para fabricação de objetos
+que estarão em cada fase, sendo esses itens e/ou naves.<p></p>
+</div>
+
+<div>
+O Factory Method foi utilizado para esse projeto, pois nessas
+condições o padrão nos oferece um meio de desligar a implementação de um produto
+final em si. Por exemplo, caso quisesse desenvolver um novo inimigo, a criação
+deste estaria facilitada e em nível de chamada, pode-se chamar qualquer nave
+inimiga, como uma nave ou simplesmente um objeto. <p></p>
+</div>
+
+<div>
+Além disso, o padrão fábrica, faz com que não haja repetição
+de código, dado que caso queira fabricar um novo item, poderia já abstrair este
+como um objeto e somente implementar as modificações ocasionadas no jogo. Mas
+isso tudo é feito de forma mais intuitiva, como uma espécie de montagem
+facilitadora, uma casca que define a criação de elementos presentes em cada
+classe. Assim, há um local único para ser modificado, assim, um local único
+para fazer manutenção, dando um código flexível e extensível no futuro.<p></p>
+</div>
+
+<div>
+Para completar, caso o uma nave específica ou um item
+precise ser desligado ou deletado, a alteração não irá afetar demais classes,
+principalmente não irá afetar seu “criador”, pois eles não estarão fortemente
+ligados. Facilitando, assim, a manutenção do código, pois encapsula esse
+comportamento de instanciação.<p></p>
+</div>
+
+<h2>
+<a id="32explicação-dodiagrama" class="anchor" href="#32explica%C3%A7%C3%A3o-dodiagrama" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+3.2.         
+Explicação do
+Diagrama<p></p>
+</h2>
+
+<div>
+No diagrama de classe acima temos a classe FabricaAtributoAcao
+definida como interface (já que Python não possui interface ela é apenas uma
+classe abstrata com funções abstratas) que define os métodos que deverão ser
+implementados por sua subclasse, a classe abstrata FabricaObjeto.<p></p>
+</div>
+
+<div>
+Ambas classes, tanto FabricaItem, quanto FabricaNave,
+que estendem a classe FabricaObjeto serão objetos na tela que possuem o
+mesmo comportamento de, ou seja, se movem e possuem uma figura que os representa.
+Estendendo de FabricaObjeto, possuem os atributos e podem utilizar e/ou sobrescrever
+os métodos existentes no super.<p></p>
+</div>
+
+<div>
+No diagrama de classes temos a classe FabricaObjeto
+como abstrata que define atributos que cabem a qualquer nave e objeto no jogo,
+além dos métodos que definem comportamentos comuns entre as naves e itens e que
+deverão ser sobrescritos por cada subclasse, que são:<p></p>
+</div>
+
+<div>
+·        
+move()<p></p>
+</div>
+
+<div>
+·        
+criaVelocidade() <p></p>
+</div>
+
+<div>
+Isso deve ser feito, pois cada nave possui seu próprio
+movimento, velocidade e, já que é uma nave também, sua própria resistência, no
+caso de um item, este deve possuir suas próprias modificações.<p></p>
+</div>
+
+<h2>
+<a id="321fabrica-naves" class="anchor" href="#321fabrica-naves" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+3.2.1.  
+Fabrica Naves<p></p>
+</h2>
+
+<h3>
+<a id="3211inimigas" class="anchor" href="#3211inimigas" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+3.2.1.1.         
+Inimigas<p></p>
+</h3>
+
+<div>
+Todas as naves inimigas devem conter o dado referente sobre
+a pontuação que o jogador arrecada por derrota-la, sendo que a explosão ficou
+igual a todas as naves por conveniência, no entanto, só algumas naves inimigas
+atiram.<p></p>
+</div>
+
+<div>
+Sendo assim, temos a classe FabricaNaveInimiga como
+abstrata estende FabricaNave e define atributos que cabem a qualquer
+nave inimiga, além disso, as classes que a estende, sobrescrevem as funções
+necessárias para toda nave, já mencionadas.<p></p>
+</div>
+
+<div>
+Alguns naves inimigas, além de implementarem as funções
+mencionadas, implementam atributos e métodos que possibilitam atirar.<p></p>
+</div>
+
+<h3>
+<a id="3212jogador" class="anchor" href="#3212jogador" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+3.2.1.2.         
+Jogador<p></p>
+</h3>
+
+<div>
+A Nave do Jogador é análoga a qualquer nave, só que esta deve
+permitir que o jogador possa atirar em seus inimigos. <p></p>
+</div>
+
+<h2>
+<a id="322fabrica-itens" class="anchor" href="#322fabrica-itens" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+3.2.2.  
+Fabrica Itens<p></p>
+</h2>
+
+<div>
+Cada item faz modificações na nave ou no status do jogador
+e, como tal, possui seu preço, caso queira ser trocada por uma pontuação e a
+probabilidade de aparecimento durante uma fase. Além de possuir os atributos e
+métodos que estão no super estendido, FabricaObjeto.<p></p>
+</div>
+
+<h1>
+<a id="4padrão-builder" class="anchor" href="#4padr%C3%A3o-builder" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+4.      
+Padrão Builder<p></p>
+</h1>
+
+<div>
+Aplicada a Naves<p></p>
+</div>
+
+<div>
+<img height="330" width="567"><p></p>
+</div>
+
+<h2>
+<a id="41motivo-dautilização" class="anchor" href="#41motivo-dautiliza%C3%A7%C3%A3o" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+4.1.         
+Motivo da
+Utilização<p></p>
+</h2>
+
+<div>
+A motivação foi separar a construção de um objeto complexo
+de sua representação de modo que o mesmo processo de construção possa criar
+diferentes representações.<p></p>
+</div>
+
+<div>
+Nesse caso deu à separação da fabricação de uma nave, do
+dano causado a mesma, do som que esta emite e da imagem referente a ela e sua
+explosão. Seguindo em si, a mesma ideia dos padrões Factory Method e Abstract
+Factory. No entanto, permitindo separar os passos da construção da nave em
+pequenos métodos que são:<p></p>
+</div>
+
+<div>
+·        
+BuildDano()<p></p>
+</div>
+
+<div>
+·        
+BuildImagemNave()<p></p>
+</div>
+
+<div>
+·        
+BuildImagemExplosao()<p></p>
+</div>
+
+<div>
+·        
+BuildSom()<p></p>
+</div>
+
+<div>
+No padrão Builder temos também uma interface comum para todos
+os objetos que constroem outros objetos. Essa interface Builder define todos os
+passos necessários para construir  cada
+tipo de nave, sendo essa a de um jogador ou inimiga.<p></p>
+</div>
+
+<div>
+<br>
+</div>
+
+<h2>
+<a id="42explicação-dodiagrama" class="anchor" href="#42explica%C3%A7%C3%A3o-dodiagrama" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+4.2.         
+Explicação do
+Diagrama<p></p>
+</h2>
+
+<h3>
+<a id="421naveproduct" class="anchor" href="#421naveproduct" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+4.2.1.    
+NaveProduct<p></p>
+</h3>
+
+<div>
+Nada mais é do que uma estrutura de dados que armazena as
+informações de uma nave. A nossa classe Builder vai possui um método para
+construir cada um dos dados do produto em questão.<p></p>
+</div>
+
+<h3>
+<a id="422navebuilder" class="anchor" href="#422navebuilder" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+4.2.2.    
+NaveBuilder<p></p>
+</h3>
+
+<div>
+Nesta classe temos a nave que será construída, os passos
+para sua construção e um método que devolve o carro construído. <p></p>
+</div>
+
+<div>
+Está classe em questão é abstrata os métodos em si serão implementados
+por cada classe abstrata que o estender, não existindo assim um “algoritmo” bem
+definido, o algoritmo será definido em outro lugar nos filhos.  Sendo assim, em cada uma das classes que o estender
+esses métodos implementar estarão “personalizando” a nave.<p></p>
+</div>
+
+<h3>
+<a id="423navejogodirector" class="anchor" href="#423navejogodirector" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+4.2.3.    
+NaveJogoDirector<p></p>
+</h3>
+
+<div>
+A classe chamada de Director, utiliza a estrutura do Builder
+para definir o algoritmo de construção do Produto.<p></p>
+</div>
+
+<div>
+Sendo que, dado um Builder, a classe vai executar os métodos
+de construção, definindo assim o algoritmo de construção de naves, e depois
+devolve nave. O código cliente vai lidar apenas com o Director, toda a
+estrutura e algoritmos utilizados para construir a nave fica por debaixo dos
+panos.<p></p>
+</div>
+
+<h1>
+<a id="5mvc" class="anchor" href="#5mvc" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+5.      
+MVC<p></p>
+</h1>
+
+<div>
+Diagrama de Composição de Estruturas<p></p>
+</div>
+
+<div>
+<img alt="diagrama de composição de estruturas.png" height="300" width="567"><p></p>
+</div>
+
+<div>
+Esse diagrama destina-se a descrição dos relacionamentos
+entre os elementos. Utilizado para descrever a colaboração interna de classes,
+interfaces ou componentes para especificar uma funcionalidade.<p></p>
+</div>
+
+<div>
+Essa colaboração interna começa a se basear no modelo MVC,
+que se trata de um padrão de arquitetura de software que separa a representação
+da informação da interação do usuário com ele. Utilizando-se das ideias
+centrais por trás do MVC, que são a reusabilidade de código e separação de
+conceitos.<p></p>
+</div>
+
+<div>
+<br>
+</div>
+
+<div>
+O modelo consiste nos dados da aplicação, regras de
+negócios, lógica e funções, que nesse caso estão na CamadaDomínioProblema,
+que possui as classes que foram indicadas no diagrama de classes.<p></p>
+</div>
+
+<div>
+Uma visão pode ser qualquer saída de representação dos
+dados, que estão na CamadaGestaoDados, como as músicas tocadas no jogo e
+as imagens que demonstram as noves a as munições, por exemplo.  Assim como podem ser representação de dados
+que pode se haver uma interação, como botões e janelas, que estão na CamadaInteraçãoHumana.<p></p>
+</div>
+
+<div>
+O controlador faz a mediação da entrada, convertendo-a em
+comandos para o modelo ou visão, estão nesse caso na CamadaControleInterface.<p></p>
+</div>
+
+<div>
+Assim, a partir disse a camada de aplicação da nave, chama
+em uma linha a função da CamadaControleInterface  a função que chama o menu inicial.<p></p>
+</div>
+
+<h1>
+<a id="6refatoração" class="anchor" href="#6refatora%C3%A7%C3%A3o" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+6.      
+Refatoração<p></p>
+</h1>
+
+<p><br></p>
+
+<div>
+Fazer isso usando SONAR<p></p>
+</div>
+        </article>
+      </div>
+    </div>
+    <footer>
+      <div class="owner">
+      <p><a href="https://github.com/izabely-furtado" class="avatar"><img src="https://avatars3.githubusercontent.com/u/14110922?v=3&amp;s=60" width="48" height="48"></a> <a href="https://github.com/izabely-furtado">izabely-furtado</a> maintains <a href="https://github.com/izabely-furtado/GameNave2">Gamenave2</a></p>
+
+
+      </div>
+      <div class="creds">
+        <small>This page generated using <a href="https://pages.github.com/">GitHub Pages</a><br>theme by <a href="https://twitter.com/jonrohan/">Jon Rohan</a></small>
+      </div>
+    </footer>
+  </div>
+  <div class="current-section">
+    <a href="#top">Scroll to top</a>
+    <a href="https://github.com/izabely-furtado/GameNave2/tarball/master" class="tar">tar</a><a href="https://github.com/izabely-furtado/GameNave2/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
+    <p class="name"></p>
+  </div>
+
+  
+</body>
+</html>
