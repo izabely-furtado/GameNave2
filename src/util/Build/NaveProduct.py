@@ -5,11 +5,11 @@
 __author__ = "IzabelyFurtado"
 __date__ = "$17/10/2015 13:34:34$"
 
-class NaveProduct(Object):
+class NaveProduct():
     def __init__(self):
         self.dano = 0
-        self.nave = null            #tipo : naveProduct
-        self.imagemNave = ""        #endereço imagem
+        self.nave = None            #tipo : naveProduct
+        self.imagemNave = ""        #endereï¿½o imagem
         self.imagemExplosao = ""
         self.som = ""
         

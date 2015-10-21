@@ -1,6 +1,9 @@
 # To change this license header, choose License Headers in Project Properties.
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
+from src.cdp.Habilidades.Municao import Municao
+from src.cdp.Habilidades.Resitencia import Resistencia
+from src.util.FabricaNave.FabricaNaveInimiga import FabricaNaveInimiga
 
 __author__ = "IzabelyFurtado"
 __date__ = "$15/10/2015 20:22:42$"
@@ -11,8 +14,8 @@ class FabricaNavePersegue(FabricaNaveInimiga):
         self.pontuacaoDerrotar = 40
         self.municao = self.criaMunicao()
 
-    """---------------AÇOES--------------------------------------------------"""
-    @abc.override
+    """---------------Aï¿½OES--------------------------------------------------"""
+    #@abc.override
     def move(self, posicaoJogador):
         if (posicaoJogador["x"] > self.posicao["x"]):
             self.posicao["x"] += self.velocidade["x"]
@@ -26,7 +29,7 @@ class FabricaNavePersegue(FabricaNaveInimiga):
         
         self.criaArea()
         
-    @abc.override
+#    @abc.override
     def atira(self):
         if self.cria_tiro(self.posicao) != "ERRO":
             self.cria_tiro(self.posicao)
@@ -35,7 +38,7 @@ class FabricaNavePersegue(FabricaNaveInimiga):
 
     """--------------ATRIBUTO------------------------------------------------"""
     
-    @abc.override
+ #   @abc.override
     def criaTiro(self, pos_nave):
         m = Municao.Municao(pos_nave)
         if m.posicao == {}:
@@ -44,15 +47,15 @@ class FabricaNavePersegue(FabricaNaveInimiga):
             self.municao.append(m)
         return m
     
-    @abc.override
+  #  @abc.override
     def criaMunicao(self):
         return []
     
-    @abc.override
+   # @abc.override
     def criaVelocidade(self):
         return {"x": 0, "y": 1}
     
-    @abc.override
+    #@abc.override
     def criaResistencia(self):
-        return Resitencia.Resistencia(4,2)
+        return Resistencia.Resistencia(4,2)
 

@@ -4,9 +4,11 @@
 #import pygame
 from pygame.locals import *
 #import sys
-from CamadaDominioProblema.Habilidades import Resitencia
-#from CamadaDominioProblema.Habilidades import Municao
 import random
+from src.cdp.Habilidades.Municao import Municao
+from src.cdp.Habilidades.Resitencia import Resistencia
+from src.util.FabricaNave.FabricaNaveInimiga import FabricaNaveInimiga
+
 __author__ = "IzabelyFurtado"
 __date__ = "$15/10/2015 20:21:41$"
 
@@ -21,8 +23,8 @@ class FabricaNavePerdida(FabricaNaveInimiga):
         self.pontuacaoDerrotar = 20
         self.municao = self.criaMunicao()
 
-    """---------------AÇOES--------------------------------------------------"""
-    @abc.override
+    """---------------Aï¿½OES--------------------------------------------------"""
+#    @abc.override
     def move(self):
         aleatorio = random.randint(0, 10)
         if (self.posicao["x"] < LIM_WIDTH and self.posicao["x"] > 0):
@@ -38,7 +40,7 @@ class FabricaNavePerdida(FabricaNaveInimiga):
         self.posicao["y"] += self.velocidade["y"]    
         self.criaArea()
     
-    @abc.override
+ #   @abc.override
     def atira(self):
         if self.cria_tiro(self.posicao) != "ERRO":
             self.cria_tiro(self.posicao)
@@ -47,7 +49,7 @@ class FabricaNavePerdida(FabricaNaveInimiga):
 
     """--------------ATRIBUTO------------------------------------------------"""
     
-    @abc.override
+  #  @abc.override
     def criaTiro(self, pos_nave):
         m = Municao.Municao(pos_nave)
         if m.posicao == {}:
@@ -56,14 +58,14 @@ class FabricaNavePerdida(FabricaNaveInimiga):
             self.municao.append(m)
         return m
     
-    @abc.override
+   # @abc.override
     def criaMunicao(self):
         return []
     
-    @abc.override
+    #@abc.override
     def criaVelocidade(self):
         return {"x": 1, "y": 1}
     
-    @abc.override
+    #@abc.override
     def criaResistencia(self):
-        return Resitencia.Resistencia(2,2)
+        return Resistencia.Resistencia(2,2)

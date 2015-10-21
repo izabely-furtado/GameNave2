@@ -5,29 +5,29 @@
 __author__ = "IzabelyFurtado"
 __date__ = "$17/10/2015 13:35:10$"
 
-class NaveBuilder(Object):
+class NaveBuilder():
     def __init__(self):
-        self.nave = null        #tipo : naveProduct
+        self.nave = None        #tipo : naveProduct
       
     def getNave(self):
         return self.nave
     
-    @abc.abstractmethod
+ #   @abc.abstractmethod
     def buildDano(self):
-        return null
+        return None
     
-    @abc.abstractmethod
+#    @abc.abstractmethod
     def buildNave(self):
-        return null
+        return None
     
-    @abc.abstractmethod
+ #   @abc.abstractmethod
     def buildImagemNave(self):
-        return null
+        return None
     
-    @abc.abstractmethod
+ #   @abc.abstractmethod
     def buildImagemExplosao(self):
-        return null
+        return None
     
-    @abc.abstractmethod
+ #   @abc.abstractmethod
     def buildSom(self):
-        return null
+        return None

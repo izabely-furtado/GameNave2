@@ -5,20 +5,20 @@
 __author__ = "IzabelyFurtado"
 __date__ = "$20/10/2015 09:17:54$"
 
-class FabricaObjeto(Object):
+class FabricaObjeto():
     def __init__(self, nome, imagemEscolhida):
         self.nome = nome
-        self.imagemObjeto = criaFigura(imagemEscolhida)
+        self.imagemObjeto = self.criaFigura(imagemEscolhida)
         self.posicao = self.criaPosicao()
         self.area = self.criaArea()
         self.velocidade = self.criaVelocidade()
         self.atingido = False
         
-    """-----------AÇOES------------------------------------------------------"""
+    """-----------Aï¿½OES------------------------------------------------------"""
     def get_area(self):
         return self.area
     
-    @abc.override
+#    @abc.override
     def move(self):
         self.posicao["y"] += self.velocidade["y"]
         self.criaArea()

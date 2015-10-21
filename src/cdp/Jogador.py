@@ -1,11 +1,13 @@
 # To change this license header, choose License Headers in Project Properties.
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
+from src.cdp.Habilidades.Resitencia import Resistencia
+from src.util.Build.NaveJogadorBuilder import NaveJogadorBuilder
 
 __author__ = "IzabelyFurtado"
 __date__ = "$17/10/2015 15:20:23$"
 
-class NaveJogoDirector(Object):
+class NaveJogoDirector():
     def __init__(self, nome, imagemEscolhida, naveEscolhida):
         self.nome = nome
         self.imagemID = imagemEscolhida
@@ -43,4 +45,4 @@ class NaveJogoDirector(Object):
         self.nave.setDano(0)
     
     def clone(self):
-        self.nave.nave.resistencia = Resitencia.Resistencia(10,20)
+        self.nave.nave.resistencia = Resistencia.Resistencia(10,20)

@@ -1,6 +1,8 @@
 # To change this license header, choose License Headers in Project Properties.
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
+from src.util.Build.NaveBuilder import NaveBuilder
+from src.util.FabricaNave.FabricaNaveJogador import FabricaNaveJogador
 
 __author__ = "20121bsi0040"
 __date__ = "$14/10/2015 08:21:32$"
@@ -15,23 +17,23 @@ class NaveJogadorBuilder(NaveBuilder):
         self.buildNave()
         
     """--------------ATRIBUTO------------------------------------------------"""
-    @override
+ #   @override
     def buildDano(self):
         self.nave.dano = 0
     
-    @override    
+ #   @override
     def buildImagemNave(self, naveExcolhida):
         self.nave.imagemNave = naveExcolhida
     
-    @override    
+ #   @override
     def buildImagemExplosao(self):
         self.nave.imagemExplosao = "/Imagens/NaveExplode.png"
     
-    @override    
+ #   @override
     def buildSom(self):
         self.nave.som = "/Som/MusicNave.wav"
     
-    @override    
+#    @override
     def buildNave(self):
         self.nave.nave = FabricaNaveJogador(self.nave.imagemNave, 
                                             self.nave.imagemExplosao,

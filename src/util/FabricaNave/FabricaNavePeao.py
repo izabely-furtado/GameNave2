@@ -4,8 +4,8 @@
 #import pygame
 from pygame.locals import *
 #import sys
-from CamadaDominioProblema.Habilidades import Resitencia
-#from CamadaDominioProblema.Habilidades import Municao
+from src.cdp.Habilidades.Resitencia import Resistencia
+from src.util.FabricaNave.FabricaNaveInimiga import FabricaNaveInimiga
 
 __author__ = "IzabelyFurtado"
 __date__ = "$15/10/2015 20:22:21$"
@@ -15,13 +15,13 @@ HEIGTH = 600
 LIM_WIDTH = WIDTH - 65
 LIM_HEIGTH = HEIGTH - 50
 
-class FabricaNaveGrupo(FabricaNaveInimiga):
+class FabricaNavePeao(FabricaNaveInimiga):
     def __init__(self, figuraNave, figuraExplosao, som):
-        super('Nave Peão', figuraNave, figuraExplosao, som)
+        super('Nave Peï¿½o', figuraNave, figuraExplosao, som)
         self.pontuacaoDerrotar = 10
         
-    """---------------AÇOES--------------------------------------------------"""
-    @abc.override
+    """---------------Aï¿½OES--------------------------------------------------"""
+#    @abc.override
     def move(self):
         if (self.posicao["direcao"] == "DIREITA"):
             if (self.posicao["x"] < LIM_WIDTH):
@@ -40,10 +40,10 @@ class FabricaNaveGrupo(FabricaNaveInimiga):
         
     """--------------ATRIBUTO------------------------------------------------"""
         
-    @abc.override
+ #   @abc.override
     def criaVelocidade(self):
         return {"x": 1, "y": 1}
     
-    @abc.override
+  #  @abc.override
     def criaResistencia(self):
-        return Resitencia.Resistencia(1,1)
+        return Resistencia.Resistencia(1,1)
