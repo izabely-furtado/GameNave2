@@ -14,6 +14,8 @@ from CamadaInteracaoHumana import JanelaMenu
 # Copyright:   (c) Gislaine  e Izabely 2015
 # Licence:     GIZ
 # -------------------------------------------------------------------------------
+from src.util.Build.NaveJogoDirector import NaveJogoDirector
+
 __author__ = 'Gislaine  e Izabely'
 
 pygame.init()
@@ -35,7 +37,6 @@ def start_controle_som():
 
     # return pygame.mixer.Sound("MusicNave.wav")
 
-
 def colisao_de_naves(nave, inimigos):
 
     area = nave.get_area()
@@ -55,13 +56,13 @@ def colisao_tiro(nave, inimigos):
 
             area = inimigo.get_area()
 
-            for tiro in nave.armamento:
+            for tiro in nave.armamento():
 
                 if area.colliderect(tiro.get_area()):
 
                     tiro.colisao = True
                     tiro.ativo = False
-                    inimigo.atingido = True
+                    inimigo.foiAtingido()
 
                     return True
 
@@ -75,7 +76,7 @@ def cria_inimigo(naves_inimigas, num_inimigos):
 
         if naves_inimigas:
             for inimigo in naves_inimigas:
-                if not nave_criada.area.colliderect(inimigo.area):
+                if not nave_criada.get_area().colliderect(inimigo.get_area):
                     naves_inimigas.append(nave_criada)
         else:
             naves_inimigas.append(nave_criada)
@@ -98,29 +99,29 @@ def get_evento_teclado(nave):
 
     if tecla[K_UP] or tecla[K_w]:
 
-        if nave.posicao["y"] > 0:
-            nave.posicao["y"] -= 25
+        if nave.getPosicaoY > 0:
+            nave.setPosicaoY(nave.getPosicaoY - 25)
 
         nave.start_area()
 
     elif tecla[K_DOWN] or tecla[K_s]:
 
-        if nave.posicao["y"] < LIM_HEIGTH:
-            nave.posicao["y"] += 25
+        if nave.getPosicaoY < LIM_HEIGTH:
+            nave.setPosicaoY(nave.getPosicaoY + 25)
 
         nave.start_area()
 
     elif tecla[K_LEFT] or tecla[K_a]:
 
-        if nave.posicao["x"] > 0:
-            nave.posicao["x"] -= 25
+        if nave.getPosicaoX > 0:
+            nave.setPosicaoX(nave.getPosicaoX - 25)
 
         nave.start_area()
 
     elif tecla[K_RIGHT] or tecla[K_d]:
 
-        if nave.posicao["x"] < LIM_WIDTH:
-            nave.posicao["x"] += 25
+        if nave.getPosicaoX < LIM_WIDTH:
+            nave.setPosicaoX(nave.getPosicaoX + 25)
 
         nave.start_area()
 
@@ -219,16 +220,16 @@ def menu_inicial():
 
 def move_tiro(nave):
 
-    if nave.armamento:
-        for tiro in nave.armamento:
+    if nave.armamento():
+        for tiro in nave.armamento():
             tiro.atira()
 
 
 def remove_tiro(nave):
-    if nave.armamento:
-        for tiro in nave.armamento:
+    if nave.armamento():
+        for tiro in nave.armamento():
             if tiro.colisao or not tiro.ativo:
-                nave.armamento.remove(tiro)
+                nave.removeTiro(tiro)
 
 
 def jogar():
@@ -254,16 +255,16 @@ def jogar():
             move_nave_inimiga(naves_inimigas)
             move_tiro(nave)
 
-            for m in nave.armamento:
-                saida.telao.blit(m.figura, (m.posicao["x"], m.posicao["y"]))
+            for m in nave.armamento():
+                saida.telao.blit(m.figura(), (m.getPosicaoX, m.getPosicaoY))
 
             remove_naves_inimigas(naves_inimigas)
             remove_tiro(nave)
 
             for n in naves_inimigas:
-                saida.telao.blit(n.figura, (n.posicao["x"], n.posicao["y"]))
+                saida.telao.blit(n.figura(), (n.getPosicaoX, n.getPosicaoY))
 
-            saida.telao.blit(nave.figura, (nave.posicao["x"], nave.posicao["y"]))
+            saida.telao.blit(nave.figura(), (nave.getPosicaoX, nave.getPosicaoY))
             explosao = colisao_tiro(nave, naves_inimigas)
 
             if explosao:
@@ -291,7 +292,7 @@ def move_nave_inimiga(naves_inimigas):
 def remove_naves_inimigas(naves_inimigas):
     if naves_inimigas:
         for inimigo in naves_inimigas:
-            if inimigo.posicao["y"] > HEIGTH or inimigo.atingido:
+            if inimigo.getPosicaoY > HEIGTH or inimigo.atingido():
                 naves_inimigas.remove(inimigo)
 
 

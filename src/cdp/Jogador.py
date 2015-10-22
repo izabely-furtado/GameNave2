@@ -2,21 +2,23 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 from src.cdp.Habilidades.Resitencia import Resistencia
+from src.cdp.Personagem import Personagem
 from src.util.Build.NaveJogadorBuilder import NaveJogadorBuilder
-
+from src.util.Build.NaveJogoDirector import NaveJogoDirector
 __author__ = "IzabelyFurtado"
 __date__ = "$17/10/2015 15:20:23$"
 
-class NaveJogoDirector():
+class Jogador(Personagem):
     def __init__(self, nome, imagemEscolhida, naveEscolhida):
+        super(Jogador.criandoNaveJogador(naveEscolhida))
         self.nome = nome
         self.imagemID = imagemEscolhida
         self.fase = 1
         self.pontos = 0
         self.vidas = 3
-        self.nave = self.criandoNaveJogador(naveEscolhida)
-    
-    def criandoNaveJogador(self, naveImagemEscolhida):
+
+    @staticmethod
+    def criandoNaveJogador(naveImagemEscolhida):
         naveBuilder = NaveJogadorBuilder(naveImagemEscolhida)
         naveJogador = NaveJogoDirector(naveBuilder)
         naveJogador.construirNave()
@@ -45,4 +47,4 @@ class NaveJogoDirector():
         self.nave.setDano(0)
     
     def clone(self):
-        self.nave.nave.resistencia = Resistencia.Resistencia(10,20)
+        self.nave.nave.resistencia = Resistencia.Resistencia(10, 20)

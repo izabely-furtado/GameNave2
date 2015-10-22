@@ -31,7 +31,7 @@ class Municao(object):
 
     @staticmethod
     def cria_figura():
-        figura = pygame.image.load("/home/gislaine/Dropbox/GameNave/CamadaGestaoDados/Imagem/tiro3.png").convert_alpha()
+        figura = pygame.image.load("tiro3.png").convert_alpha()
 
         return figura
 

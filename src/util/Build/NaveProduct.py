@@ -8,7 +8,7 @@ __date__ = "$17/10/2015 13:34:34$"
 class NaveProduct():
     def __init__(self):
         self.dano = 0
-        self.nave = None            #tipo : naveProduct
+        self.nave = None            #tipo : FabricaNave
         self.imagemNave = ""        #endere�o imagem
         self.imagemExplosao = ""
         self.som = ""

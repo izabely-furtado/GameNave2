@@ -14,6 +14,7 @@ class FabricaNaveJogador(FabricaNave):
         self.tempoMissel = 0
         self.municao = self.criaMunicao()
 
+
     """---------------A�OES--------------------------------------------------"""
 #    @abc.override
     def move(self):
@@ -50,5 +51,4 @@ class FabricaNaveJogador(FabricaNave):
     def criaResistencia(self):
         return Resistencia.Resistencia(10,2)
     
-
 
