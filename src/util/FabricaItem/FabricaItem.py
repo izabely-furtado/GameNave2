@@ -1,7 +1,5 @@
-from src.util.FabricaObjeto import FabricaObjeto
+from src.util import FabricaObjeto
 
-__author__ = "IzabelyFurtado"
-__date__ = "$20/10/2015 08:01:52$"
 
 class FabricaItem(FabricaObjeto):
     def __init__(self, nome, imagemEscolhida, preco, probabilidade):
@@ -9,8 +7,7 @@ class FabricaItem(FabricaObjeto):
         self.preco = preco
         self.probabilidade = probabilidade
         
-    """-----------A�OES------------------------------------------------------"""
-  #  @abc.abstract
+    # """-----------ACOES-------------------"""
+    #  @abc.abstract
     def modificacoes(self, nave):
         return 0
-            

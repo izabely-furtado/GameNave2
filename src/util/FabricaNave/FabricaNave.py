@@ -1,12 +1,6 @@
 import pygame
-from pygame.locals import *
-#import sys
-#from CamadaDominioProblema.Habilidades import Municao
-from src.cdp.Habilidades.Resistencia import Resistencia
-from src.util.FabricaObjeto import FabricaObjeto
-
-__author__ = "20121bsi0040"
-__date__ = "$14/10/2015 08:20:28$"
+from src.cdp.Habilidades import Resistencia
+from src.util import FabricaObjeto
 
 WIDTH = 1000
 HEIGTH = 600
@@ -21,18 +15,18 @@ class FabricaNave(FabricaObjeto):
         self.resistencia = self.criaResistencia()
         self.explosao = FabricaNave.criaExplosao(figuraExplosao)
         
-    """-----------A�OES------------------------------------------------------"""
-    #@override
+    # """-----------ACOES-----------------------"""
+    # @override
     def move(self):
         self.posicao["y"] += self.velocidade["y"]
         self.criaArea()
     
-    #@abc.override
+    # @abc.override
     def explode(self, figuraExplosao):
         if (self.atingido == True):
             return self.criaExplosao(figuraExplosao)
     
-    """--------ATRIBUTOS-----------------------------------------------------"""
+    # """--------ATRIBUTOS----------------------"""
     
     @staticmethod
     def criaSom(som):
@@ -43,16 +37,16 @@ class FabricaNave(FabricaObjeto):
         self.som.set_volume(0.1)
         self.som.play()
 
-    #@abc.override
+    # @abc.override
     def criaVelocidade(self):
         return {"x": 0, "y": 2}
     
-    #@abc.override
+    # @abc.override
     def criaResistencia(self):
-        resiste = Resistencia.Resistencia(0,0)
+        resiste = Resistencia.Resistencia(0, 0)
         return resiste
     
-    #@abc.override
+    # @abc.override
     @staticmethod
     def criaExplosao(figuraExplosao):
         return FabricaNave.criaFigura(figuraExplosao)

@@ -1,5 +1,6 @@
 #!/usr/local/bin/python
 import pygame
+from src.cih import ItemMenu
 # -------------------------------------------------------------------------------
 # Name:        Nave Maluca 1.1
 # Author:      Gislaine  e Izabely
@@ -7,7 +8,7 @@ import pygame
 # Copyright:   (c) Gislaine  e Izabely 2015
 # Licence:     GIZ
 # -------------------------------------------------------------------------------
-from src.cih import ItemMenu
+
 
 __author__ = 'Gislaine  e Izabely'
 

@@ -1,12 +1,6 @@
-# To change this license header, choose License Headers in Project Properties.
-# To change this template file, choose Tools | Templates
-# and open the template in the editor.
-from src.cdp.Habilidades.Resistencia import Resistencia
+from src.cdp.Habilidades import Resistencia
 from src.cdp.Personagens import Personagem
-#rom src.util.Build.NaveJogadorBuilder import NaveJogadorBuilder
-#from src.util.Build.NaveJogoDirector import NaveJogoDirector
-__author__ = "IzabelyFurtado"
-__date__ = "$17/10/2015 15:20:23$"
+
 
 class Jogador(Personagem):
     def __init__(self, nome, imagemID, naveEscolhida):

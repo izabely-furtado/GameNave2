@@ -1,12 +1,6 @@
-# To change this license header, choose License Headers in Project Properties.
-# To change this template file, choose Tools | Templates
-# and open the template in the editor.
-from src.util.Build.NaveBuilder import NaveBuilder
-from src.util.FabricaNave.FabricaNaveJogador import FabricaNaveJogador
+from src.util.Build import NaveBuilder
+from src.util.FabricaNave import FabricaNaveJogador
 from src.cgd import Path
-
-__author__ = "20121bsi0040"
-__date__ = "$14/10/2015 08:21:32$"
 
 
 class NaveJogadorBuilder(NaveBuilder):
@@ -18,26 +12,26 @@ class NaveJogadorBuilder(NaveBuilder):
         self.buildSom()
         self.buildNave()
         
-    """--------------ATRIBUTO------------------------------------------------"""
- #   @override
+    # """--------------ATRIBUTO---------------------"""
+    #   @override
     def buildDano(self):
         super(NaveBuilder).naveProduct.dano = 0
     
- #   @override
+    #   @override
     def buildImagemNave(self):
         super(NaveBuilder).naveProduct.imagemNave = Path.getPath() + 'Imagem/Nave/TieFighter_archigraphs.png'
     
- #   @override
+    #   @override
     def buildImagemExplosao(self):
         super(NaveBuilder).naveProduct.imagemExplosao = Path.getPath() + "Imagem/Nave/NaveExplode.png"
     
- #   @override
+    #   @override
     def buildSom(self):
         super(NaveBuilder).naveProduct.som = Path.getPath() + "Som/MusicNave.wav"
     
-#    @override
+    #    @override
     def buildNave(self):
-        super(NaveBuilder).naveProduct.naveFabrica = FabricaNaveJogador("Vai na fé",
-                                            self.naveProduct.imagemNave,
-                                            self.naveProduct.imagemExplosao,
-                                            self.naveProduct.som)
+        super(NaveBuilder).naveProduct.naveFabrica = FabricaNaveJogador.FabricaNaveJogador("Vai na fé",
+                                                                        self.naveProduct.imagemNave,
+                                                                        self.naveProduct.imagemExplosao,
+                                                                        self.naveProduct.som)

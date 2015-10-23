@@ -1,8 +1,6 @@
 from src.cgd import Path
-from src.util.Build.NaveBuilder import NaveBuilder
-from src.util.FabricaNave.FabricaNaveBoss import FabricaNaveBoss
-
-__author__ = "IzabelyFurtado e GislaineAlmeida"
+from src.util.Build import NaveBuilder
+from src.util.FabricaNave import FabricaNaveBoss
 
 
 class NaveBossBuilder(NaveBuilder):
@@ -14,7 +12,7 @@ class NaveBossBuilder(NaveBuilder):
         self.buildSom()
         self.buildNave()
         
-    """--------------ATRIBUTO------------------------------------------------"""
+    # """--------------ATRIBUTO------------------------------"""
     #    @override
     def buildDano(self):
         self.naveProduct.dano = 0
@@ -33,6 +31,6 @@ class NaveBossBuilder(NaveBuilder):
 
     #    @override
     def buildNave(self):
-        self.naveProduct.naveFabrica = FabricaNaveBoss(self.naveProduct.imagemNave,
+        self.naveProduct.naveFabrica = FabricaNaveBoss.FabricaNaveBoss(self.naveProduct.imagemNave,
                                          self.naveProduct.imagemExplosao,
                                          self.naveProduct.som)

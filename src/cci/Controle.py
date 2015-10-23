@@ -4,14 +4,12 @@ import sys
 from pygame.locals import *
 import random
 from src.cdp.Personagens import Personagem
-
 from src.cih import Impressao
 from src.cih import JanelaMenu
 from src.util.Build import (NavePerdidaBuilder, NaveFugaBuilder, NaveGrupoBuilder, NavePeaoBuilder, NavePersegueBuilder)
 from src.util.Build import NaveJogadorBuilder
-from src.cgd import Path
+# from src.cgd import Path
 
-# from src.cdp.Personagens import (Inimigo, Jogador)
 # -------------------------------------------------------------------------------
 # Name:        Nave Maluca 1.1
 # Author:      Gislaine e Izabely
@@ -307,9 +305,9 @@ def carregar():
 
 
 def cria_nave():
-    nome = "Bulhufinha"
-   # imagemID = Path.getPath() + 'Imagem/TieFighter_archigraphs.png'
-   # imagemNave = Path.getPath() + 'Imagem/TieFighter_archigraphs.png'
+    # nome = "Bulhufinha"
+    # imagemID = Path.getPath() + 'Imagem/TieFighter_archigraphs.png'
+    # imagemNave = Path.getPath() + 'Imagem/TieFighter_archigraphs.png'
     naveEscolhida = NaveJogadorBuilder.NaveJogadorBuilder()
 
     n = Personagem.Personagem.criandoNave(naveEscolhida)

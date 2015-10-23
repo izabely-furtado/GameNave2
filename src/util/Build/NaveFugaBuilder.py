@@ -1,12 +1,7 @@
-# To change this license header, choose License Headers in Project Properties.
-# To change this template file, choose Tools | Templates
-# and open the template in the editor.
-from src.util.Build.NaveBuilder import NaveBuilder
-from src.util.FabricaNave.FabricaNaveFuga import FabricaNaveFuga
+from src.util.Build import NaveBuilder
+from src.util.FabricaNave import FabricaNaveFuga
 from src.cgd import Path
 
-__author__ = "IzabelyFurtado"
-__date__ = "$15/10/2015 20:23:00$"
 
 class NaveFugaBuilder(NaveBuilder):
     def __init__(self):
@@ -17,26 +12,25 @@ class NaveFugaBuilder(NaveBuilder):
         self.buildSom()
         self.buildNave()
         
-    """--------------ATRIBUTO------------------------------------------------"""
-#    @override
+    # """--------------ATRIBUTO---------------------"""
+    #    @override
     def buildDano(self):
         self.naveProduct.dano = 0
     
- #   @override
+    #   @override
     def buildImagemNave(self):
         self.naveProduct.imagemNave = Path.getPath() + "Imagem/Nave/NaveFuga.png"
     
- #   @override
+    #   @override
     def buildImagemExplosao(self):
         self.naveProduct.imagemExplosao = Path.getPath() + "Imagem/Nave/NaveExplode.png"
     
-  #  @override
+    #  @override
     def buildSom(self):
         self.naveProduct.som = Path.getPath() + "Som/MusicNave.wav"
     
-#    @override
+    #    @override
     def buildNave(self):
-        self.naveProduct.naveFabrica = FabricaNaveFuga(self.naveProduct.imagemNave,
-                                         self.naveProduct.imagemExplosao,
-                                         self.naveProduct.som)
-    
+        self.naveProduct.naveFabrica = FabricaNaveFuga.FabricaNaveFuga(self.naveProduct.imagemNave,
+                                                                       self.naveProduct.imagemExplosao,
+                                                                       self.naveProduct.som)

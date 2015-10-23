@@ -1,12 +1,5 @@
-#from src.util.Build import NaveJogadorBuilder
 from src.util.Build import NaveJogoDirector
 
-__author__ = 'IzabelyFurtado'
-__date__ = "$17/10/2015 15:20:23$"
-
-# To change this license header, choose License Headers in Project Properties.
-# To change this template file, choose Tools | Templates
-# and open the template in the editor.
 
 class Personagem(object):
     def __init__(self, nave):

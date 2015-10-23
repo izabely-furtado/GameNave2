@@ -1,11 +1,6 @@
-# To change this license header, choose License Headers in Project Properties.
-# To change this template file, choose Tools | Templates
-# and open the template in the editor.
 import pygame
 from pygame.rect import Rect
 
-__author__ = "IzabelyFurtado"
-__date__ = "$20/10/2015 09:17:54$"
 
 class FabricaObjeto(object):
     def __init__(self, nome, imagemEscolhida):
@@ -16,16 +11,16 @@ class FabricaObjeto(object):
         self.velocidade = self.criaVelocidade()
         self.atingido = False
         
-    """-----------A�OES------------------------------------------------------"""
+    # """-----------ACOES-------------------"""
     def get_area(self):
         return self.area
 
-#    @abc.override
+    #    @abc.override
     def move(self):
         self.posicao["y"] += self.velocidade["y"]
         self.criaArea()
     
-    """--------ATRIBUTOS-----------------------------------------------------"""
+    # """--------ATRIBUTOS----------------"""
     @staticmethod
     def criaFigura(figura):
         f = pygame.image.load(figura).convert_alpha()

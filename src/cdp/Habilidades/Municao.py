@@ -1,7 +1,9 @@
 #!/usr/local/bin/python
 import random
 import pygame
-
+import sys
+from pygame.rect import Rect
+from src.cgd import Path
 # -------------------------------------------------------------------------------
 # Name:        Nave Maluca 1.1
 # Author:      Gislaine e Izabely
@@ -9,9 +11,7 @@ import pygame
 # Copyright:   (c) Gislaine e Izabely 2015
 # Licence:     GIZ
 # -------------------------------------------------------------------------------
-import sys
-from pygame.rect import Rect
-from src.cgd import Path
+
 
 __author__ = 'Gislaine  e Izabely'
 
