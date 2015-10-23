@@ -64,7 +64,7 @@
 
 <p><strong>2.    Introdução</strong></p>
 
-<p>Este documento apresenta um relatório de projeto e engenharia do sistema de um jogo de naves. Este documento está organizado da seguinte forma: a seção 3 apresenta o padrão Fábrica utilizado, seus respectivos  diagramas, motivações e explicações, a seção 4 apresenta o padrão Builder utilizado, seus respectivos  diagramas, motivações e explicações , a seção 5 demonstra o diagrama de classes e o de composição de estruturas e descreve a utilização MVC, a seção 6 demonstra a diferença evidenciada com a refatoração do código.</p>
+<p>Este documento apresenta um relatório de projeto e engenharia do sistema de um jogo de naves. Este documento está organizado da seguinte forma: a seção 3 apresenta o padrão Fábrica utilizado, seus respectivos  diagramas, motivações e explicações, a seção 4 apresenta o padrão Builder utilizado, seus respectivos  diagramas, motivações e explicações , a seção 5 demonstra o diagrama de classes e o de composição de estruturas e descreve a utilização MVC, a seção 6 demonstra a diferença evidenciada com a refatoração do código, a seção 7 descreve um passo a passo de como deve rodar o programa.</p>
 
 <p><strong>3.    Padrão Fábrica</strong></p>
 
@@ -170,7 +170,19 @@ Alguns naves inimigas, além de implementarem as funções mencionadas, implemen
 
 <p><strong>6.    Refatoração</strong></p>
 
-<p>Fazer isso usando SONAR</p>
+<p>Sobre o sonar, primeiramente a configuração dessa ferramenta foi complicada de ser entendida e aplicada, pois o site era meio confuso no seus passo a passo de configuração. </p>
+
+<p>Conseguimos inicializar o servidor, mas na hora de analisar o arquivo ele não aceitava e não sabemos se é um bug da ferramenta ou um processo de instalação incompleto. Mas após horas de tentativa de solucionar, acabamos por deixar de lado esse passo. </p>
+
+<p>Em três computadores diferentes houve a frustração. Seria legal se pudéssemos ter nos computadores do laboratório algumas maquinas com o sonar instalado que pudéssemos usar, nesses casos excepcionais.</p>
+
+<p><strong>7.    Instalação</strong></p>
+
+<p>Futuramente o jogo pretende gerar um executável para facilitar a inicialização do jogo para ser usado, mas enquanto essas melhorias não são implementadas algumas configurações devem ser realizadas. </p>
+
+<p>Para que o jogo nave rode em um computador é necessário fazer a instalação do python versão 3.4, foi utilizado e a biblioteca pygame compatível com a versão do python utilizada. Utilizando uma ide que possa ser configurado o Python para interpretar, o programa pode ser rodado e jogado, ainda não como gostaríamos devido a vários contratempo tecnológicos e de aprendizado, mas em uma versão bem básica. </p>
+
+<p><strong>Observação:</strong> Ao tentar rodar no Windows pode ser que não seja possível executar, pois a biblioteca de jogos para esse sistema só abrange até o python 3.2 e o programa utiliza como base outra versão. Por algum motivo que ainda não descobrimos, as imagens não estão sendo possíveis de ser carregadas sem que se passe o caminho das mesmas.</p>
       </section>
       <footer>
         <p>Project maintained by <a href="https://github.com/izabely-furtado">izabely-furtado</a></p>
