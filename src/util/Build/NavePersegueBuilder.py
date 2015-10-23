@@ -1,5 +1,5 @@
 from src.util.Build import NaveBuilder
-from src.util.FabricaNave import FabricaNavePersegue
+from src.util.FabricaNaves import FabricaNavePersegue
 from src.cgd import Path
 
 

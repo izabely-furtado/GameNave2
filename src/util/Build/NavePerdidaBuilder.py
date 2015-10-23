@@ -1,5 +1,5 @@
-from src.util.Build.NaveBuilder import NaveBuilder
-from src.util.FabricaNave.FabricaNavePerdida import FabricaNavePerdida
+from src.util.Build import NaveBuilder
+from src.util.FabricaNaves import FabricaNavePerdida
 from src.cgd import Path
 
 
@@ -31,6 +31,6 @@ class NavePerdidaBuilder(NaveBuilder):
     
     # @override
     def buildNave(self):
-        self.naveProduct.naveFabrica = FabricaNavePerdida(self.naveProduct.imagemNave,
+        self.naveProduct.naveFabrica = FabricaNavePerdida.FabricaNavePerdida(self.naveProduct.imagemNave,
                                             self.naveProduct.imagemExplosao,
                                             self.naveProduct.som)

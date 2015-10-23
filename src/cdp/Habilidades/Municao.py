@@ -33,7 +33,7 @@ class Municao(object):
         self.area = self.start_area()
 
     @staticmethod
-    def cria_figura():
+    def criaFigura():
         aleatorio = random.randint(0, 10)
 
         if 0 <= aleatorio <= 3:

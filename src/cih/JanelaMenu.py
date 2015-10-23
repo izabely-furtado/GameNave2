@@ -32,7 +32,7 @@ class JanelaMenu(object):
         self.mouse_visivel = True
         self.item_atual = None
 
-    def start_itens(self, itens, fonte, fonte_size, fonte_cor):
+    def startItens(self, itens, fonte, fonte_size, fonte_cor):
 
         for index, item in enumerate(itens):
 
@@ -46,7 +46,7 @@ class JanelaMenu(object):
 
             self.itens.append(item_menu)
 
-    def set_visibilidade_mouse(self):
+    def setVisibilidadeMouse(self):
 
         if self.mouse_visivel:
 
@@ -56,7 +56,7 @@ class JanelaMenu(object):
 
             pygame.mouse.set_visible(False)
 
-    def set_selecao_teclado(self, key):
+    def setSelecaoTeclado(self, key):
 
         """ Marca o item do menu que foi escolhido pela teclas up ou down.
         """
@@ -98,7 +98,7 @@ class JanelaMenu(object):
             self.funcoes[texto]()
 
     @staticmethod
-    def set_selecao_mouse(item, mpos1, mpos2):
+    def setSelecaoMouse(item, mpos1, mpos2):
 
         """ Marca no menu o item que o mouse passou.
         """

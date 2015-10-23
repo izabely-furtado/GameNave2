@@ -31,17 +31,17 @@ class ItemMenu(pygame.font.Font):
         self.pos_x = pos_x
         self.pos_y = pos_y
 
-    def set_posicao(self, x, y):
+    def setPosicao(self, x, y):
 
         self.pos_x = x
         self.pos_y = y
 
-    def set_fonte_cor(self, cor):
+    def setFonteCor(self, cor):
 
         self.fonte_cor = cor
         self.label = self.render(self.text, 1, self.fonte_cor)
 
-    def mouse_selecionado(self, posx, posy):
+    def mouseSelecionado(self, posx, posy):
 
         if self.pos_x <= posx <= self.pos_x + self.width:
 

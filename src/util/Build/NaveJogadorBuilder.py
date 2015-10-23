@@ -1,5 +1,5 @@
 from src.util.Build import NaveBuilder
-from src.util.FabricaNave import FabricaNaveJogador
+from src.util.FabricaNaves import FabricaNaveJogador
 from src.cgd import Path
 
 

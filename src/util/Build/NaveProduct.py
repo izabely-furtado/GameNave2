@@ -1,4 +1,4 @@
-from src.util.FabricaNave import FabricaNave
+from src.util.FabricaNaves import FabricaNave
 from src.cgd import Path
 
 
@@ -7,7 +7,7 @@ class NaveProduct(object):
         self.dano = 0
         self.naveFabrica = FabricaNave.FabricaNave('nome', Path.getPath()+'/Imagem/X Wing.png',
                                                    Path.getPath()+'/Imagem/Item/Clone0.png',
-                                                   Path.getPath()+'/Som/MusicNave.wav')    # tipo : FabricaNave
+                                                   Path.getPath()+'/Som/MusicNave.wav')    # tipo : FabricaNaves
         self.imagemNave = Path.getPath()+'/Imagem/X Wing.png'                              # endereco imagem
         self.imagemExplosao = Path.getPath()+'/Imagem/Item/Clone0.png'
         self.som = Path.getPath()+'/Som/MusicNave.wav'

@@ -1,6 +1,6 @@
 from src.cgd import Path
 from src.util.Build import NaveBuilder
-from src.util.FabricaNave import FabricaNaveBoss
+from src.util.FabricaNaves import FabricaNaveBoss
 
 
 class NaveBossBuilder(NaveBuilder):

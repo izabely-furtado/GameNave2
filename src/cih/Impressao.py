@@ -23,11 +23,11 @@ pygame.font.init()
 class Impressao(object):
 
     def __init__(self):
-        self.telao = self.imprime_tela_inicial()
+        self.telao = self.imprimeTelaInicial()
         self.figura = None
 
     @staticmethod
-    def imprime_instrucao():
+    def imprimeInstrucao():
         titulo = " - Nave maluca -Instrução"
 
         tela = pygame.display.set_mode((WIDTH, HEIGTH), 0, 32)
@@ -40,7 +40,7 @@ class Impressao(object):
         return tela
 
     @staticmethod
-    def imprime_tela_inicial():
+    def imprimeTelaInicial():
 
         titulo = " - Nave maluca - Let's Play"
 
@@ -54,7 +54,7 @@ class Impressao(object):
         return tela
 
     @staticmethod
-    def start_tela_menu():
+    def startTelaMenu():
 
         titulo = " - Nave maluca - Menu"
 
@@ -69,7 +69,7 @@ class Impressao(object):
         return tela
 
     @staticmethod
-    def imprime_texto_fim():
+    def imprimeTextoFim():
 
         tela = pygame.display.set_mode((WIDTH, HEIGTH), 0, 32)
         titulo = " - Nave maluca - Game over"
