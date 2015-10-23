@@ -20,7 +20,7 @@ class FabricaNavePersegue(FabricaNaveInimiga):
     def move(self):
         aleatorio = random.randint(0, 10)
         if (self.posicao["x"] < LIM_WIDTH) and (self.posicao["x"] > 0):
-            if aleatorio > 5:
+            if aleatorio > 6:
                 self.posicao["x"] += self.velocidade["x"]
             else:
                 self.posicao["x"] -= self.velocidade["x"]
