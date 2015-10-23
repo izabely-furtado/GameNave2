@@ -1,25 +1,26 @@
+from abc import (ABCMeta, abstractmethod)
 
 
-class FabricaAtributoNave(object):
+class FabricaAtributoNave(metaclass=ABCMeta):
     
-    """-----ACOES-------"""
-    #    @abc.abstractmethod
-    def __move__(self):
-        return None
+    # ACOES
+    @abstractmethod
+    def move(self):
+        pass
         
-    # """"---ATRIBUTOS-----"""
-    #   @abc.abstractmethod
-    def __criaFigura__(self, figura):
-        return None
+    # ATRIBUTOS
+    @abstractmethod
+    def cria_figura(self, figura):
+        pass
     
-    #  @abc.abstractmethod
-    def __criaPosicao__(self):
-        return None
+    @abstractmethod
+    def cria_posicao(self):
+        pass
     
-    # @abc.abstractmethod
-    def __criaArea__(self):
-        return None
+    @abstractmethod
+    def cria_area(self):
+        pass
     
-    # @abc.abstractmethod
-    def __criaVelocidade__(self):
-        return None
+    @abstractmethod
+    def cria_velocidade(self):
+        pass

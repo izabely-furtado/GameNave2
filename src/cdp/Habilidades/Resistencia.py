@@ -1,7 +1,7 @@
 #!/usr/local/bin/python
 
 # -------------------------------------------------------------------------------
-# Name:        Nave Maluca 1.1
+# Name:        Nave Maluca 2.1
 # Author:      Gislaine e Izabely
 # Created:     09/29/2015
 # Copyright:   (c) Gislaine  e Izabely 2015
@@ -12,6 +12,6 @@ __author__ = 'Gislaine e Izabely'
 
 class Resistencia(object):
 
-    def __init__(self, esbarrar, danoPorTiro):
+    def __init__(self, esbarrar, dano_por_tiro):
         self.esbarrar = esbarrar
-        self.dadoPorTiro = danoPorTiro
+        self.dadoPorTiro = dano_por_tiro

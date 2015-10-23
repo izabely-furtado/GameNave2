@@ -5,26 +5,26 @@ from src.cgd import Path
 class NaveProduct(object):
     def __init__(self):
         self.dano = 0
-        self.naveFabrica = FabricaNave.FabricaNave('nome', Path.getPath()+'/Imagem/X Wing.png',
-                                                   Path.getPath()+'/Imagem/Item/Clone0.png',
-                                                   Path.getPath()+'/Som/MusicNave.wav')    # tipo : FabricaNaves
-        self.imagemNave = Path.getPath()+'/Imagem/X Wing.png'                              # endereco imagem
-        self.imagemExplosao = Path.getPath()+'/Imagem/Item/Clone0.png'
-        self.som = Path.getPath()+'/Som/MusicNave.wav'
+        self.nave_fabrica = FabricaNave.FabricaNave('nome', Path.get_path() + '/Imagem/X Wing.png',
+                                                    Path.get_path() + '/Imagem/Item/Clone0.png',
+                                                    Path.get_path() + '/Som/MusicNave.wav')      # tipo : FabricaNaves
+        self.imagem_nave = Path.get_path() + '/Imagem/X Wing.png'                                # endereco imagem
+        self.imagem_explosao = Path.get_path() + '/Imagem/Item/Clone0.png'
+        self.som = Path.get_path() + '/Som/MusicNave.wav'
         
-    def getDano(self):
+    def get_dano(self):
         return self.dano
     
-    def setDano(self, dano):
+    def set_dano(self, dano):
         if dano >= 0:
             self.dano = dano
     
-    def getNave(self):
-        return self.naveFabrica
+    def get_nave(self):
+        return self.nave_fabrica
     
-    def sofreDano(self,dano):
+    def sofre_dano(self, dano):
         if dano > 0:
             self.dano += dano
     
-    def setImagemNave(self, imagem):
-        self.imagemNave = imagem
+    def set_imagem_nave(self, imagem):
+        self.imagem_nave = imagem

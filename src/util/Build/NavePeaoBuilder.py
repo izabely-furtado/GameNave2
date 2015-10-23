@@ -6,31 +6,31 @@ from src.cgd import Path
 class NavePeaoBuilder(NaveBuilder):
     def __init__(self):
         super(NavePeaoBuilder, self).__init__()
-        self.buildDano()
-        self.buildImagemNave()
-        self.buildImagemExplosao()
-        self.buildSom()
-        self.buildNave()
+        self.build_dano()
+        self.buildimagem_nave()
+        self.build_imagem_explosao()
+        self.build_som()
+        self.build_nave()
         
     # """--------------ATRIBUTO------------------"""
     #  @override
-    def buildDano(self):
-        self.naveProduct.dano = 0
+    def build_dano(self):
+        self.nave_product.dano = 0
     
     #   @override
-    def buildImagemNave(self):
-        self.naveProduct.imagemNave = Path.getPath() + "Imagem/Nave/NavePeao.png"
+    def build_imagem_nave(self):
+        self.nave_product.imagem_nave = Path.get_path() + "Imagem/Nave/NavePeao.png"
     
     #  @override
-    def buildImagemExplosao(self):
-        self.naveProduct.imagemExplosao = Path.getPath() + "Imagem/Nave/NaveExplode.png"
+    def build_imagem_explosao(self):
+        self.nave_product.imagem_explosao = Path.get_path() + "Imagem/Nave/NaveExplode.png"
     
     #   @override
-    def buildSom(self):
-        self.naveProduct.som = "Som/MusicNave.wav"
+    def build_som(self):
+        self.nave_product.som = "Som/MusicNave.wav"
     
     #   @override
-    def buildNave(self):
-        self.naveProduct.naveFabrica = FabricaNavePeao.FabricaNavePeao(self.naveProduct.imagemNave,
-                                         self.naveProduct.imagemExplosao,
-                                         self.naveProduct.som)
+    def build_nave(self):
+        self.nave_product.nave_fabrica = FabricaNavePeao.FabricaNavePeao(self.nave_product.imagem_nave,
+                                                                         self.nave_product.imagem_explosao,
+                                                                         self.nave_product.som)

@@ -7,4 +7,5 @@ class FabricaMunicao(FabricaItem):
         
     #  @abc.abstract
     def modificacoes(self, jogador):
-        return 0
+        # return 0
+        pass

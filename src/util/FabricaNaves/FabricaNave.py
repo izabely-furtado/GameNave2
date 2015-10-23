@@ -1,6 +1,6 @@
 import pygame
 from src.cdp.Habilidades import Resistencia
-from src.cdp.Habilidades.Municao import Municao
+from src.cdp.Habilidades import Municao
 from src.util import FabricaObjeto
 
 WIDTH = 1000
@@ -11,32 +11,33 @@ LIM_HEIGTH = HEIGTH - 50
 
 class FabricaNave(FabricaObjeto):
 
-    def __init__(self, nome, figuraNave, figuraExplosao, som):
-        super(FabricaNave, self).__init__(nome, figuraNave)
-        self.som = self.criaSom(som)
-        self.resistencia = self.criaResistencia()
-        self.explosao = self.criaExplosao(figuraExplosao)
+    def __init__(self, nome, figura_nave, figura_explosao, som):
+        super(FabricaNave, self).__init__(nome, figura_nave)
+        self.som = self.cria_som(som)
+        self.resistencia = self.cria_resistencia()
+        self.explosao = self.cria_explosao(figura_explosao)
         self.municao = None
         
     # """-----------ACOES-----------------------"""
     # @override
     def move(self):
         self.posicao["y"] += self.velocidade["y"]
-        self.criaArea()
+        self.cria_area()
     
     # @abc.override
-    def explode(self, figuraExplosao):
+    def explode(self, figura_explosao):
         if self.atingido:
-            return self.criaExplosao(figuraExplosao)
+            return self.cria_explosao(figura_explosao)
 
     def atira(self):
-        if self.criaTiro(self.posicao) != "ERRO":
-            self.criaTiro(self.posicao)
+        if self.cria_tiro(self.posicao) != "ERRO":
+            self.cria_tiro(self.posicao)
         self.municao[-1].atira()
         self.buzina()
 
     # """--------ATRIBUTOS----------------------"""
-    def criaSom(self, som):
+    @staticmethod
+    def cria_som(som):
         pygame.mixer.init(frequency=22050, size=-16, channels=2, buffer=4096)
         return pygame.mixer.Sound(som)
 
@@ -45,20 +46,23 @@ class FabricaNave(FabricaObjeto):
         self.som.play()
 
     # @abc.override
-    def criaVelocidade(self):
+    @staticmethod
+    def cria_velocidade():
         return {"x": 0, "y": 2}
     
     # @abc.override
-    def criaResistencia(self):
+    @staticmethod
+    def cria_resistencia():
         resiste = Resistencia.Resistencia(0, 0)
         return resiste
     
     # @abc.override
-    def criaExplosao(self, figuraExplosao):
-        return FabricaNave.criaFigura(figuraExplosao)
+    @staticmethod
+    def cria_explosao(figura_explosao):
+        return FabricaNave.cria_figura(figura_explosao)
     
     # @abc.override
-    def criaTiro(self, pos_nave):
+    def cria_tiro(self, pos_nave):
         m = Municao.Municao(pos_nave)
         if m.posicao == {}:
             m = "ERRO"
@@ -67,5 +71,6 @@ class FabricaNave(FabricaObjeto):
         return m
     
     # @abc.override
-    def criaMunicao(self):
+    @staticmethod
+    def cria_municao():
         return []

@@ -8,9 +8,9 @@ LIM_HEIGTH = HEIGTH - 50
 
 
 class FabricaNaveGrupo(FabricaNaveInimiga):
-    def __init__(self, figuraNave, figuraExplosao, som):
-        super(FabricaNaveGrupo).__init__('Nave de Grupo', figuraNave, figuraExplosao, som)
-        self.pontuacaoDerrotar = 10
+    def __init__(self, figura_nave, figura_explosao, som):
+        super(FabricaNaveGrupo).__init__('Nave de Grupo', figura_nave, figura_explosao, som)
+        self.pontuacao_derrotar = 10
         
     # """---------------ACOES-------------------"""
     #    @abc.override
@@ -29,14 +29,15 @@ class FabricaNaveGrupo(FabricaNaveInimiga):
                 self.posicao["x"] += self.velocidade["x"]
         
         self.posicao["y"] += self.velocidade["y"]    
-        self.criaArea()
+        self.cria_area()
         
     # """--------------ATRIBUTO--------------------"""
-        
     #   @abc.override
-    def criaVelocidade(self):
+    @staticmethod
+    def cria_velocidade():
         return {"x": 1, "y": 1}
     
     #  @abc.override
-    def criaResistencia(self):
+    @staticmethod
+    def cria_resistencia():
         return Resistencia.Resistencia(1, 1)

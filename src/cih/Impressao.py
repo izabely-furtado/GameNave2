@@ -2,7 +2,7 @@
 import pygame
 
 # -------------------------------------------------------------------------------
-# Name:        Nave Maluca 1.1
+# Name:        Nave Maluca 2.1
 # Author:      Gislaine
 # Created:     09/29/2015
 # Copyright:   (c) Gislaine  e Izabely 2015
@@ -23,11 +23,11 @@ pygame.font.init()
 class Impressao(object):
 
     def __init__(self):
-        self.telao = self.imprimeTelaInicial()
+        self.telao = self.imprime_tela_inicial()
         self.figura = None
 
     @staticmethod
-    def imprimeInstrucao():
+    def imprime_instrucao():
         titulo = " - Nave maluca -Instrução"
 
         tela = pygame.display.set_mode((WIDTH, HEIGTH), 0, 32)
@@ -40,7 +40,7 @@ class Impressao(object):
         return tela
 
     @staticmethod
-    def imprimeTelaInicial():
+    def imprime_tela_inicial():
 
         titulo = " - Nave maluca - Let's Play"
 
@@ -54,7 +54,7 @@ class Impressao(object):
         return tela
 
     @staticmethod
-    def startTelaMenu():
+    def start_tela_menu():
 
         titulo = " - Nave maluca - Menu"
 
@@ -69,7 +69,7 @@ class Impressao(object):
         return tela
 
     @staticmethod
-    def imprimeTextoFim():
+    def imprime_texto_fim():
 
         tela = pygame.display.set_mode((WIDTH, HEIGTH), 0, 32)
         titulo = " - Nave maluca - Game over"

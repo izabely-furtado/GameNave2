@@ -1,5 +1,4 @@
 import random
-from src.cdp.Habilidades import Municao
 from src.cdp.Habilidades import Resistencia
 from src.util.FabricaNaves import FabricaNaveInimiga
 
@@ -10,10 +9,10 @@ LIM_HEIGTH = HEIGTH - 50
 
 
 class FabricaNaveBoss(FabricaNaveInimiga):
-    def __init__(self, figuraNave, figuraExplosao, som):
-        super(FabricaNaveBoss, self).__init__('BOSS!!', figuraNave, figuraExplosao, som)
-        self.pontuacaoDerrotar = 200
-        self.municao = self.criaMunicao()
+    def __init__(self, figura_nave, figura_explosao, som):
+        super(FabricaNaveBoss, self).__init__('BOSS!!', figura_nave, figura_explosao, som)
+        self.pontuacao_derrotar = 200
+        self.municao = self.cria_municao()
 
     # """---------------ACOES----------------------"""
     #    @abc.override
@@ -38,21 +37,23 @@ class FabricaNaveBoss(FabricaNaveInimiga):
                     self.posicao["y"] -= self.velocidade["y"] - aleatorio
                     self.posicao["direcao"] = "ACIMA"
 
-        self.criaArea()
+        self.cria_area()
     """
     #  @abc.override
     def atira(self):
-        if self.criaTiro(self.posicao) != "ERRO":
-            self.criaTiro(self.posicao)
+        if self.cria_tiro(self.posicao) != "ERRO":
+            self.cria_tiro(self.posicao)
         self.municao[-1].atira()
         self.buzina()
     """
     # """--------------ATRIBUTO----------------------"""
 
     # @abc.override
-    def criaVelocidade(self):
+    @staticmethod
+    def cria_velocidade():
         return {"x": 1, "y": 1}
     
     # @abc.override
-    def criaResistencia(self):
-        return Resistencia.Resistencia(10,4)
+    @staticmethod
+    def cria_resistencia():
+        return Resistencia.Resistencia(10, 4)

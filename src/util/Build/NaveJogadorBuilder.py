@@ -6,32 +6,35 @@ from src.cgd import Path
 class NaveJogadorBuilder(NaveBuilder):
     def __init__(self):
         super(NaveJogadorBuilder, self).__init__()
-        self.buildDano()
-        self.buildImagemNave()
-        self.buildImagemExplosao()
-        self.buildSom()
-        self.buildNave()
+        self.build_dano()
+        self.buildimagem_nave()
+        self.build_imagem_explosao()
+        self.build_som()
+        self.build_nave()
         
     # """--------------ATRIBUTO---------------------"""
     #   @override
-    def buildDano(self):
-        super(NaveBuilder).naveProduct.dano = 0
+    @staticmethod
+    def build_dano():
+        super(NaveBuilder).nave_product.dano = 0
     
     #   @override
-    def buildImagemNave(self):
-        super(NaveBuilder).naveProduct.imagemNave = Path.getPath() + 'Imagem/Nave/TieFighter_archigraphs.png'
+    @staticmethod
+    def build_imagem_nave():
+        super(NaveBuilder).nave_product.imagem_nave = Path.get_path() + 'Imagem/Nave/TieFighter_archigraphs.png'
     
     #   @override
-    def buildImagemExplosao(self):
-        super(NaveBuilder).naveProduct.imagemExplosao = Path.getPath() + "Imagem/Nave/NaveExplode.png"
+    @staticmethod
+    def build_imagem_explosao():
+        super(NaveBuilder).nave_product.imagem_explosao = Path.get_path() + "Imagem/Nave/NaveExplode.png"
     
     #   @override
-    def buildSom(self):
-        super(NaveBuilder).naveProduct.som = Path.getPath() + "Som/MusicNave.wav"
+    @staticmethod
+    def build_som():
+        super(NaveBuilder).nave_product.som = Path.get_path() + "Som/MusicNave.wav"
     
     #    @override
-    def buildNave(self):
-        super(NaveBuilder).naveProduct.naveFabrica = FabricaNaveJogador.FabricaNaveJogador("Vai na fé",
-                                                                        self.naveProduct.imagemNave,
-                                                                        self.naveProduct.imagemExplosao,
-                                                                        self.naveProduct.som)
+    def build_nave(self):
+        super(NaveBuilder).nave_product.nave_fabrica = \
+            FabricaNaveJogador.FabricaNaveJogador("Vai na fé", self.nave_product.imagem_nave,
+                                                  self.nave_product.imagem_explosao, self.nave_product.som)

@@ -1,4 +1,4 @@
 __author__ = 'gislaine'
 
-def getPath():
+def get_path():
     return '/home/gislaine/Dropbox/GameNave2.8-master/src/cgd/'

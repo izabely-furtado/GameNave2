@@ -3,27 +3,27 @@ from src.util.Build import NaveProduct
 
 class NaveBuilder(object):
     def __init__(self):
-        self.naveProduct = NaveProduct.NaveProduct()        # tipo : naveProduct
+        self.nave_product = NaveProduct.NaveProduct()        # tipo : naveProduct
 
-    def getNave(self):
-        return self.naveProduct
+    def get_nave(self):
+        return self.nave_product
     
     #   @abc.abstractmethod
-    def buildDano(self):
-        return None
+    def build_dano(self):
+        pass
     
     #    @abc.abstractmethod
-    def buildNave(self):
-        return None
+    def build_nave(self):
+        pass
     
     #   @abc.abstractmethod
-    def buildImagemNave(self):
-        return None
+    def buildimagem_nave(self):
+        pass
     
     #   @abc.abstractmethod
-    def buildImagemExplosao(self):
-        return None
+    def build_imagem_explosao(self):
+        pass
     
     #   @abc.abstractmethod
-    def buildSom(self):
-        return None
+    def build_som(self):
+        pass

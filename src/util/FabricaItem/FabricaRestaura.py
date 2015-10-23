@@ -4,7 +4,7 @@ from src.cgd import Path
 
 class FabricaRestaura(FabricaItem):
     def __init__(self):
-        super(FabricaRestaura, self).__init__('Restaura', Path.getPath() + "Imagem/Item/Restaura.png", 100, 30)
+        super(FabricaRestaura, self).__init__('Restaura', Path.get_path() + "Imagem/Item/Restaura.png", 100, 30)
         
     #  @abc.abstract
     def modificacoes(self, jogador):

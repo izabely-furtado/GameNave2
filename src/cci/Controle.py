@@ -1,17 +1,16 @@
 #!/usr/local/bin/python
-import pygame
 import sys
-from pygame.locals import *
 import random
+import pygame
+from pygame.locals import *
 from src.cdp.Personagens import Personagem
 from src.cih import Impressao
 from src.cih import JanelaMenu
-from src.util.Build import (NavePerdidaBuilder, NaveFugaBuilder, NaveGrupoBuilder, NavePeaoBuilder, NavePersegueBuilder)
-from src.util.Build import NaveJogadorBuilder
-# from src.cgd import Path
+from src.util.Build import (NavePerdidaBuilder, NaveFugaBuilder, NaveGrupoBuilder,
+                            NavePeaoBuilder, NavePersegueBuilder, NaveJogadorBuilder)
 
 # -------------------------------------------------------------------------------
-# Name:        Nave Maluca 1.1
+# Name:        Nave Maluca 2.1
 # Author:      Gislaine e Izabely
 # Created:     09/29/2015
 # Copyright:   (c) Gislaine  e Izabely 2015
@@ -32,16 +31,16 @@ LIM_HEIGTH = HEIGTH - 50
 WHITE = (255, 255, 255)
 FPS = 60
 
-def startControleSom():
 
+def start_controle_som():
     pygame.mixer.pre_init(44100, 32, 2, 4096)
 
     pygame.mixer.init(frequency=22050, size=-16, channels=2, buffer=4096)
 
     # return pygame.mixer.Sound("MusicNave.wav")
 
-def colisaoNaves(nave, inimigos):
 
+def colisao_naves(nave, inimigos):
     area = nave.get_area()
 
     for inimigo in inimigos:
@@ -51,8 +50,7 @@ def colisaoNaves(nave, inimigos):
     return False
 
 
-def colisaoTiro(nave, inimigos):
-
+def colisao_tiro(nave, inimigos):
     if inimigos:
 
         for inimigo in inimigos:
@@ -62,20 +60,18 @@ def colisaoTiro(nave, inimigos):
             for tiro in nave.armamento():
 
                 if area.colliderect(tiro.get_area()):
-
                     tiro.colisao = True
                     tiro.ativo = False
-                    inimigo.foiAtingido()
+                    inimigo.foi_atingido()
 
                     return True
 
     return False
 
 
-def criaInimigo(naves_inimigas, num_inimigos):
-
+def cria_inimigo(naves_inimigas, num_inimigos):
     if len(naves_inimigas) < num_inimigos:
-        nave_criada = criaNaveInimigo()
+        nave_criada = cria_nave_inimigo()
 
         if naves_inimigas:
             for inimigo in naves_inimigas:
@@ -87,44 +83,41 @@ def criaInimigo(naves_inimigas, num_inimigos):
     return naves_inimigas
 
 
-def getEventoSaida():
-
+def get_evento_saida():
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-
             pygame.quit()
             sys.exit()
 
 
-def getEventoTeclado(nave):
-
+def get_evento_teclado(nave):
     tecla = pygame.key.get_pressed()
 
     if tecla[K_UP] or tecla[K_w]:
 
-        if nave.getPosicaoY() > 0:
-            nave.setPosicaoY(nave.getPosicaoY() - 25)
+        if nave.get_posicaox() > 0:
+            nave.set_posicaoy(nave.get_posicaoy() - 25)
 
         nave.start_area()
 
     elif tecla[K_DOWN] or tecla[K_s]:
 
-        if nave.getPosicaoY() < LIM_HEIGTH:
-            nave.setPosicaoY(nave.getPosicaoY() + 25)
+        if nave.get_posicaoy() < LIM_HEIGTH:
+            nave.set_osicaoy(nave.get_posicaoy() + 25)
 
         nave.start_area()
 
     elif tecla[K_LEFT] or tecla[K_a]:
 
-        if nave.getPosicaoX() > 0:
-            nave.setPosicaoX(nave.getPosicaoX() - 25)
+        if nave.get_posicaox() > 0:
+            nave.set_posicaox(nave.get_posicaox() - 25)
 
         nave.start_area()
 
     elif tecla[K_RIGHT] or tecla[K_d]:
 
-        if nave.getPosicaoX() < LIM_WIDTH:
-            nave.setPosicaoX(nave.getPosicaoX() + 25)
+        if nave.get_posicaox() < LIM_WIDTH:
+            nave.set_posicaox(nave.get_posicaox() + 25)
 
         nave.start_area()
 
@@ -134,49 +127,47 @@ def getEventoTeclado(nave):
 
 
 def run(menu):
+    relogio = pygame.time.Clock()
+    loop_principal = True
 
-        relogio = pygame.time.Clock()
-        loop_principal = True
+    while loop_principal:
+        mouse_posicao = pygame.mouse.get_pos()
 
-        while loop_principal:
-            mouse_posicao = pygame.mouse.get_pos()
+        for event in pygame.event.get():
 
-            for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                loop_principal = False
+                pygame.quit()
 
-                if event.type == pygame.QUIT:
-                    loop_principal = False
-                    pygame.quit()
+            if event.type == pygame.KEYDOWN:
+                menu.mouse_visivel = False
+                menu.set_selecao_teclado(event.key)
 
-                if event.type == pygame.KEYDOWN:
-                    menu.mouse_visivel = False
-                    menu.setSelecaoTeclado(event.key)
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                for item in menu.itens:
+                    if item.mouse_selecionado(mouse_posicao[0], mouse_posicao[1]):
+                        menu.funcoes[item.text]()
 
-                if event.type == pygame.MOUSEBUTTONDOWN:
-                    for item in menu.itens:
-                        if item.mouseSelecionado(mouse_posicao[0], mouse_posicao[1]):
-                            menu.funcoes[item.text]()
+        if pygame.mouse.get_rel() != (0, 0):
+            menu.mouse_visivel = True
+            menu.item_atual = None
 
-            if pygame.mouse.get_rel() != (0, 0):
-                menu.mouse_visivel = True
-                menu.item_atual = None
+        menu.set_visibilidade_mouse()
 
-            menu.setVisibilidadeMouse()
+        for item in menu.itens:
+            if menu.mouse_visivel:
+                menu.set_selecao_mouse(item, mouse_posicao[0], mouse_posicao[1])
+            menu.tela.blit(item.label, (item.pos_x, item.pos_y))
 
-            for item in menu.itens:
-                if menu.mouse_visivel:
-                    menu.setSelecaoMouse(item, mouse_posicao[0], mouse_posicao[1])
-                menu.tela.blit(item.label, (item.pos_x, item.pos_y))
+        pygame.display.flip()
 
-            pygame.display.flip()
-
-            relogio.tick(FPS)
+        relogio.tick(FPS)
 
 
-def menuFim():
-
+def menu_fim():
     saida = Impressao.Impressao()
 
-    tela = saida.imprimeTextoFim()
+    tela = saida.imprime_texto_fim()
     menu_itens = ("Novo Jogo", "Sair")
 
     funcoes = {"Novo Jogo": jogar, "Sair": sys.exit}
@@ -188,14 +179,13 @@ def menuFim():
     run(menu)
 
 
-def menuInstrucao():
-
+def menu_instrucao():
     saida = Impressao.Impressao()
 
-    tela = saida.imprimeInstrucao()
+    tela = saida.imprime_instrucao()
     menu_itens = ("Voltar", "Iniciar")
 
-    funcs = {"Voltar": menuInicial(), "Iniciar": jogar}
+    funcs = {"Voltar": menu_inicial(), "Iniciar": jogar}
 
     tam_fonte = 30
     font_name = pygame.font.get_default_font()
@@ -204,14 +194,13 @@ def menuInstrucao():
     run(menu)
 
 
-def menuInicial():
-
+def menu_inicial():
     saida = Impressao.Impressao()
-    tela = saida.startTelaMenu()
+    tela = saida.start_tela_menu()
 
     menu_itens = ("Iniciar Jogo", "Instruções", "Sair")
 
-    funcs = {"Iniciar Jogo": jogar, "Sair": sys.exit, "Instruções": menuInstrucao()}
+    funcs = {"Iniciar Jogo": jogar, "Sair": sys.exit, "Instruções": menu_instrucao()}
 
     tam_fonte = 30
     font_name = pygame.font.get_default_font()
@@ -221,26 +210,24 @@ def menuInicial():
     run(menu)
 
 
-def moveTiro(nave):
-
+def move_tiro(nave):
     if nave.armamento():
         for tiro in nave.armamento():
             tiro.atira()
 
 
-def removeTiro(nave):
+def remove_tiro(nave):
     if nave.armamento():
         for tiro in nave.armamento():
             if tiro.colisao or not tiro.ativo:
-                nave.removeTiro(tiro)
+                nave.remove_tiro(tiro)
 
 
 def jogar():
-
     pygame.init()
     pygame.font.init()
     saida = Impressao.Impressao()
-    nave = criaNave()
+    nave = cria_nave()
     colisao = False
     num_inimigos = 10
     naves_inimigas = []
@@ -248,94 +235,89 @@ def jogar():
 
     while True:
 
-        getEventoSaida()
+        get_evento_saida()
 
         if not colisao:
-            naves_inimigas = criaInimigo(naves_inimigas, num_inimigos)
-            getEventoTeclado(nave)
+            naves_inimigas = cria_inimigo(naves_inimigas, num_inimigos)
+            get_evento_teclado(nave)
             carregar()
-            colisao = colisaoNaves(nave, naves_inimigas)
-            moveNaveInimiga(naves_inimigas)
-            moveTiro(nave)
+            colisao = colisao_naves(nave, naves_inimigas)
+            move_nave_inimiga(naves_inimigas)
+            move_tiro(nave)
 
             for m in nave.armamento():
-                saida.telao.blit(m.figura(), (m.getPosicaoX(), m.getPosicaoY()))
+                saida.telao.blit(m.figura(), (m.get_posicao_x(), m.get_posicao_y()))
 
-            removeNavesInimigas(naves_inimigas)
-            removeTiro(nave)
+            remove_naves_inimigas(naves_inimigas)
+            remove_tiro(nave)
 
             for n in naves_inimigas:
-                saida.telao.blit(n.figura(), (n.getPosicaoX(), n.getPosicaoY()))
+                saida.telao.blit(n.figura(), (n.get_posicao_x(), n.get_posicao_y()))
 
-            saida.telao.blit(nave.figura(), (nave.getPosicaoX(), nave.getPosicaoY()))
-            explosao = colisaoTiro(nave, naves_inimigas)
+            saida.telao.blit(nave.figura(), (nave.get_posicao_x(), nave.get_posicao_y()))
+            explosao = colisao_tiro(nave, naves_inimigas)
 
             if explosao:
-                removeTiro(nave)
-                removeNavesInimigas(naves_inimigas)
+                remove_tiro(nave)
+                remove_naves_inimigas(naves_inimigas)
 
         else:
-            menuFim()
+            menu_fim()
 
         pygame.display.update()
         relogio.tick(FPS)
 
 
-def tocaMusica(som):
+def toca_musica(som):
     som.set_volume(0.1)
     som.play()
 
 
-def moveNaveInimiga(naves_inimigas):
+def move_nave_inimiga(naves_inimigas):
     if naves_inimigas:
         for inimigo in naves_inimigas:
             inimigo.move()
 
 
-def removeNavesInimigas(naves_inimigas):
+def remove_naves_inimigas(naves_inimigas):
     if naves_inimigas:
         for inimigo in naves_inimigas:
-            if inimigo.getPosicaoY() > HEIGTH or inimigo.atingido():
+            if inimigo.get_posicao_y() > HEIGTH or inimigo.atingido():
                 naves_inimigas.remove(inimigo)
 
 
 def carregar():
-
     Impressao.Impressao()
 
 
-def criaNave():
-    # nome = "Bulhufinha"
-    # imagemID = Path.getPath() + 'Imagem/TieFighter_archigraphs.png'
-    # imagemNave = Path.getPath() + 'Imagem/TieFighter_archigraphs.png'
-    naveEscolhida = NaveJogadorBuilder.NaveJogadorBuilder()
+def cria_nave():
+    nave_escolhida = NaveJogadorBuilder.NaveJogadorBuilder()
 
-    n = Personagem.Personagem.criandoNave(naveEscolhida)
-    n.setPosicaoX(LIM_WIDTH / 2)
-    n.setPosicaoY(LIM_HEIGTH)
+    n = Personagem.Personagem.criando_nave(nave_escolhida)
+    n.set_posicaox(LIM_WIDTH / 2)
+    n.set_posicaoy(LIM_HEIGTH)
     n.start_area()
 
     return n
 
 
-def criaNaveInimigo():
-
+def cria_nave_inimigo():
     aleatorio = random.randint(0, 20)
 
     if 0 <= aleatorio <= 3:
-        naveEscolhida = NavePersegueBuilder.NavePersegueBuilder()
+        nave_escolhida = NavePersegueBuilder.NavePersegueBuilder()
     elif 4 <= aleatorio <= 8:
-        naveEscolhida = NavePeaoBuilder.NavePeaoBuilder()
+        nave_escolhida = NavePeaoBuilder.NavePeaoBuilder()
     elif 9 <= aleatorio <= 11:
-        naveEscolhida = NavePerdidaBuilder.NavePerdidaBuilder()
+        nave_escolhida = NavePerdidaBuilder.NavePerdidaBuilder()
     elif 10 <= aleatorio <= 17:
-        naveEscolhida = NaveGrupoBuilder.NaveGrupoBuilder()
+        nave_escolhida = NaveGrupoBuilder.NaveGrupoBuilder()
     else:
-        naveEscolhida = NaveFugaBuilder.NaveFugaBuilder()
+        nave_escolhida = NaveFugaBuilder.NaveFugaBuilder()
 
-    n = Personagem.Personagem.criandoNave(naveEscolhida)
-    n.setPosicaoX(random.randrange(LIM_WIDTH - 20))
-    n.setPosicaoY(0)
+    n = Personagem.Personagem.criando_nave(nave_escolhida)
+    n.set_posicaoX(random.randrange(LIM_WIDTH - 20))
+    n.set_posicaoY(0)
     n.start_area()
 
     return n

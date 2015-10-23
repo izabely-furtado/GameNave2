@@ -1,16 +1,15 @@
 
 
 class NaveJogoDirector(object):
-    def __init__(self, naveBuilder):
-        self.montadora = naveBuilder
+    def __init__(self, nave_builder):
+        self.montadora = nave_builder
         
-    def construirNave(self):
-        self.montadora.buildDano()
-        self.montadora.buildImagemNave()
-        self.montadora.buildImagemExplode()
-        self.montadora.buildSom()
-        self.montadora.buildNave()
+    def contruir_nave(self):
+        self.montadora.build_dano()
+        self.montadora.build_imagem_nave()
+        self.montadora.build_imagem_explode()
+        self.montadora.build_som()
+        self.montadora.build_nave()
 
-    def getNave(self):
+    def get_nave(self):
         return self.montadora.nave
-

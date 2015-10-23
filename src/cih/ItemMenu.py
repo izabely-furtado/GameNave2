@@ -1,7 +1,7 @@
 #!/usr/local/bin/python
 import pygame
 # -------------------------------------------------------------------------------
-# Name:        Nave Maluca 1.1
+# Name:        Nave Maluca 2.1
 # Author:      Gislaine  e Izabely
 # Created:     09/29/2015
 # Copyright:   (c) Gislaine  e Izabely 2015
@@ -9,8 +9,8 @@ import pygame
 # -------------------------------------------------------------------------------
 __author__ = 'Gislaine  e Izabely'
 
-pygame.init()
 
+pygame.init()
 
 WHITE = (255, 255, 255)
 RED = (255, 0, 0)
@@ -31,17 +31,17 @@ class ItemMenu(pygame.font.Font):
         self.pos_x = pos_x
         self.pos_y = pos_y
 
-    def setPosicao(self, x, y):
+    def set_posicao(self, x, y):
 
         self.pos_x = x
         self.pos_y = y
 
-    def setFonteCor(self, cor):
+    def set_fonte_cor(self, cor):
 
         self.fonte_cor = cor
         self.label = self.render(self.text, 1, self.fonte_cor)
 
-    def mouseSelecionado(self, posx, posy):
+    def mouse_selecionado(self, posx, posy):
 
         if self.pos_x <= posx <= self.pos_x + self.width:
 

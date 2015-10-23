@@ -5,7 +5,7 @@ import sys
 from pygame.rect import Rect
 from src.cgd import Path
 # -------------------------------------------------------------------------------
-# Name:        Nave Maluca 1.1
+# Name:        Nave Maluca 2.1
 # Author:      Gislaine e Izabely
 # Created:     09/29/2015
 # Copyright:   (c) Gislaine e Izabely 2015
@@ -33,19 +33,20 @@ class Municao(object):
         self.area = self.start_area()
 
     @staticmethod
-    def criaFigura():
+    def cria_figura():
         aleatorio = random.randint(0, 10)
 
         if 0 <= aleatorio <= 3:
-            figura = pygame.image.load(Path.getPath() + "Imagem/Tiro/tiro1.png").convert_alpha()
+            figura = pygame.image.load(Path.get_path() + "Imagem/Tiro/tiro1.png").convert_alpha()
         elif 4 <= aleatorio <= 6:
-            figura = pygame.image.load(Path.getPath() + "Imagem/Tiro/tiro2.png").convert_alpha()
+            figura = pygame.image.load(Path.get_path() + "Imagem/Tiro/tiro2.png").convert_alpha()
         else:
-            figura = pygame.image.load(Path.getPath() + "Imagem/Tiro/tiro3.png").convert_alpha()
+            figura = pygame.image.load(Path.get_path() + "Imagem/Tiro/tiro3.png").convert_alpha()
 
         return figura
 
-    def cria_posicao(self, pos):
+    @staticmethod
+    def cria_posicao(pos):
         posicao = {}
         if (pos < LIM_WIDTH - 30) and (pos < LIM_HEIGTH - 15):
             posicao = {"x": pos["x"] + 30, "y": pos["y"] + 15}
@@ -54,7 +55,8 @@ class Municao(object):
 
         return posicao
 
-    def cria_velocidade(self):
+    @staticmethod
+    def cria_velocidade():
         return {"x": 0, "y": 20}
 
     def start_area(self):

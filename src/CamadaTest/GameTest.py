@@ -7,7 +7,7 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(True, False)
 
     def cria_posicao_valido(self):
-        val = 100
+        val = {}
         resultado = {"x": val["x"] + 30, "y": val["y"] + 15}
         self.assertEqual(resultado, Municao.cria_posicao(val))
 
