@@ -4,7 +4,7 @@
 #import pygame
 from pygame.locals import *
 #import sys
-from src.cdp.Habilidades.Resitencia import Resistencia
+from src.cdp.Habilidades.Resistencia import Resistencia
 from src.util.FabricaNave.FabricaNaveInimiga import FabricaNaveInimiga
 
 __author__ = "IzabelyFurtado"
@@ -17,7 +17,7 @@ LIM_HEIGTH = HEIGTH - 50
 
 class FabricaNavePeao(FabricaNaveInimiga):
     def __init__(self, figuraNave, figuraExplosao, som):
-        super('Nave Pe�o', figuraNave, figuraExplosao, som)
+        super(FabricaNavePeao, self).__init__('Nave Pe�o', figuraNave, figuraExplosao, som)
         self.pontuacaoDerrotar = 10
         
     """---------------A�OES--------------------------------------------------"""

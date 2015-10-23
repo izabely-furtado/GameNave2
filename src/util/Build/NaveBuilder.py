@@ -1,16 +1,12 @@
-# To change this license header, choose License Headers in Project Properties.
-# To change this template file, choose Tools | Templates
-# and open the template in the editor.
+from src.util.Build import NaveProduct
 
-__author__ = "IzabelyFurtado"
-__date__ = "$17/10/2015 13:35:10$"
 
-class NaveBuilder():
+class NaveBuilder(object):
     def __init__(self):
-        self.nave = None        #tipo : naveProduct
-      
+        self.naveProduct = NaveProduct.NaveProduct()        #tipo : naveProduct
+
     def getNave(self):
-        return self.nave
+        return self.naveProduct
     
  #   @abc.abstractmethod
     def buildDano(self):

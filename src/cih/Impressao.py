@@ -15,6 +15,7 @@ HEIGTH = 600
 LIM_WIDTH = WIDTH - 65
 LIM_HEIGTH = HEIGTH - 50
 
+
 pygame.init()
 pygame.font.init()
 
@@ -32,7 +33,7 @@ class Impressao(object):
         tela = pygame.display.set_mode((WIDTH, HEIGTH), 0, 32)
         pygame.display.set_caption(titulo)
         imagem = pygame.image.load("/home/gislaine/Dropbox/"
-                                   "GameNave/CamadaGestaoDados/Imagem/instrucao.png").convert_alpha()
+                                   "GameNave2.8-master/src/cgd/Imagem/instrucao.png").convert_alpha()
 
         tela.blit(imagem, (0, 0))
 
@@ -46,7 +47,7 @@ class Impressao(object):
         tela = pygame.display.set_mode((WIDTH, HEIGTH), 0, 32)
         pygame.display.set_caption(titulo)
         imagem = pygame.image.load("/home/gislaine/Dropbox/"
-                                   "GameNave/CamadaGestaoDados/Imagem/tela_espaco2.jpg").convert()
+                                   "GameNave2.8-master/src/cgd/Imagem/tela_espaco2.jpg").convert()
 
         tela.blit(imagem, (0, 0))
 
@@ -59,7 +60,7 @@ class Impressao(object):
 
         tela = pygame.display.set_mode((WIDTH, HEIGTH), 0, 32)
         pygame.display.set_caption(titulo)
-        imagem = pygame.image.load("/home/gislaine/Dropbox/GameNave/CamadaGestaoDados/Imagem/tela_menu3.jpg").convert()
+        imagem = pygame.image.load("/home/gislaine/Dropbox/GameNave2.8-master/src/cgd/Imagem/tela_menu3.jpg").convert()
 
         tela.blit(imagem, (0, 0))
 
@@ -74,7 +75,7 @@ class Impressao(object):
         titulo = " - Nave maluca - Game over"
         pygame.display.set_caption(titulo)
 
-        imagem = pygame.image.load("/home/gislaine/Dropbox/GameNave/CamadaGestaoDados/Imagem/tela_menu5.jpg").convert()
+        imagem = pygame.image.load("/home/gislaine/Dropbox/GameNave2.8-master/src/cgd/Imagem/tela_menu5.jpg").convert()
         tela.blit(imagem, (0, 0))
         font_name = pygame.font.get_default_font()
         game_font = pygame.font.SysFont(font_name, 70)

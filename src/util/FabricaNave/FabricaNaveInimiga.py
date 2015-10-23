@@ -8,7 +8,7 @@ __date__ = "$14/10/2015 08:21:43$"
 
 class FabricaNaveInimiga(FabricaNave):
     def __init__(self, nome, figuraNave, figuraExplosao, som):
-        super(nome, figuraNave, figuraExplosao, som)
+        super(FabricaNaveInimiga, self).__init__(nome, figuraNave, figuraExplosao, som)
         self.pontuacaoDerrotar = 0
 
   #  @abc.override

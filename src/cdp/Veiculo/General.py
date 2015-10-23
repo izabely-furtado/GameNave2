@@ -1,5 +1,3 @@
-#!/usr/local/bin/python
-from CamadaDominioProblema.Veiculo import Inimigo
 
 # -------------------------------------------------------------------------------
 # Name:        Nave Maluca 1.1
@@ -8,6 +6,8 @@ from CamadaDominioProblema.Veiculo import Inimigo
 # Copyright:   (c) Gislaine e Izabely 2015
 # Licence:     GIZ
 # -------------------------------------------------------------------------------
+from src.cdp.Veiculo.Inimigo import Inimigo
+
 __author__ = 'Gislaine e Izabely'
 
 

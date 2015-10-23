@@ -2,12 +2,13 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 from src.util.FabricaItem.FabricaClone import FabricaClone
+from src.cgd import Path
 
 __author__ = "IzabelyFurtado"
 __date__ = "$20/10/2015 08:14:09$"
 
 class FabricaClone1(FabricaClone):
     def __init__(self):
-        super("/Imagens/Clone1.png")
+        super(FabricaClone1, self).__init__(Path.getPath() + "Imagem/Item/Clone1.png")
         
     

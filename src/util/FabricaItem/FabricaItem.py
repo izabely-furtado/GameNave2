@@ -5,7 +5,7 @@ __date__ = "$20/10/2015 08:01:52$"
 
 class FabricaItem(FabricaObjeto):
     def __init__(self, nome, imagemEscolhida, preco, probabilidade):
-        super(nome, imagemEscolhida)
+        super(FabricaItem, self).__init__(nome, imagemEscolhida)
         self.preco = preco
         self.probabilidade = probabilidade
         

@@ -2,7 +2,7 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 from src.cdp.Habilidades.Municao import Municao
-from src.cdp.Habilidades.Resitencia import Resistencia
+from src.cdp.Habilidades.Resistencia import Resistencia
 from src.util.FabricaNave.FabricaNave import FabricaNave
 
 __author__ = "20121bsi0040"
@@ -10,7 +10,7 @@ __date__ = "$14/10/2015 08:21:32$"
 
 class FabricaNaveJogador(FabricaNave):
     def __init__(self, nome, figuraNave, figuraExplosao, som):
-        super(nome, figuraNave, figuraExplosao, som)
+        super(FabricaNaveJogador).__init__(nome, figuraNave, figuraExplosao, som)
         self.tempoMissel = 0
         self.municao = self.criaMunicao()
 
@@ -23,8 +23,8 @@ class FabricaNaveJogador(FabricaNave):
        
  #   @abc.override
     def atira(self):
-        if self.cria_tiro(self.posicao) != "ERRO":
-            self.cria_tiro(self.posicao)
+        if self.criaTiro(self.posicao) != "ERRO":
+            self.criaTiro(self.posicao)
         self.municao[-1].atira()
         self.buzina()
 

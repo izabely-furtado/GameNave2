@@ -2,7 +2,7 @@ import pygame
 from pygame.locals import *
 #import sys
 #from CamadaDominioProblema.Habilidades import Municao
-from src.cdp.Habilidades.Resitencia import Resistencia
+from src.cdp.Habilidades.Resistencia import Resistencia
 from src.util.FabricaObjeto import FabricaObjeto
 
 __author__ = "20121bsi0040"
@@ -13,9 +13,10 @@ HEIGTH = 600
 LIM_WIDTH = WIDTH - 65
 LIM_HEIGTH = HEIGTH - 50
 
+
 class FabricaNave(FabricaObjeto):
     def __init__(self, nome, figuraNave, figuraExplosao, som):
-        super(nome, figuraNave)
+        super(FabricaNave, self).__init__(nome, figuraNave)
         self.som = self.criaSom(som)
         self.resistencia = self.criaResistencia()
         self.explosao = FabricaNave.criaExplosao(figuraExplosao)
@@ -29,7 +30,7 @@ class FabricaNave(FabricaObjeto):
     #@abc.override
     def explode(self, figuraExplosao):
         if (self.atingido == True):
-            return self.__criaExplosao__(figuraExplosao)
+            return self.criaExplosao(figuraExplosao)
     
     """--------ATRIBUTOS-----------------------------------------------------"""
     
@@ -38,15 +39,20 @@ class FabricaNave(FabricaObjeto):
         pygame.mixer.init(frequency=22050, size=-16, channels=2, buffer=4096)
         return pygame.mixer.Sound(som)
 
+    def buzina(self):
+        self.som.set_volume(0.1)
+        self.som.play()
+
     #@abc.override
     def criaVelocidade(self):
         return {"x": 0, "y": 2}
     
     #@abc.override
     def criaResistencia(self):
-        return Resistencia.Resistencia()
+        resiste = Resistencia.Resistencia(0,0)
+        return resiste
     
     #@abc.override
     @staticmethod
     def criaExplosao(figuraExplosao):
-        return FabricaNave.start_figura(figuraExplosao);
+        return FabricaNave.criaFigura(figuraExplosao)

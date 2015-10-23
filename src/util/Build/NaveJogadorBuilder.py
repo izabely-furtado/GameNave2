@@ -3,15 +3,17 @@
 # and open the template in the editor.
 from src.util.Build.NaveBuilder import NaveBuilder
 from src.util.FabricaNave.FabricaNaveJogador import FabricaNaveJogador
+from src.cgd import Path
 
 __author__ = "20121bsi0040"
 __date__ = "$14/10/2015 08:21:32$"
 
+
 class NaveJogadorBuilder(NaveBuilder):
-    def __init__(self, naveEscolhida):
-        super()
+    def __init__(self):
+        super(NaveJogadorBuilder, self).__init__()
         self.buildDano()
-        self.buildImagemNave(naveEscolhida)
+        self.buildImagemNave()
         self.buildImagemExplosao()
         self.buildSom()
         self.buildNave()
@@ -19,22 +21,23 @@ class NaveJogadorBuilder(NaveBuilder):
     """--------------ATRIBUTO------------------------------------------------"""
  #   @override
     def buildDano(self):
-        self.nave.dano = 0
+        super(NaveBuilder).naveProduct.dano = 0
     
  #   @override
-    def buildImagemNave(self, naveExcolhida):
-        self.nave.imagemNave = naveExcolhida
+    def buildImagemNave(self):
+        super(NaveBuilder).naveProduct.imagemNave = Path.getPath() + 'Imagem/Nave/TieFighter_archigraphs.png'
     
  #   @override
     def buildImagemExplosao(self):
-        self.nave.imagemExplosao = "/Imagens/NaveExplode.png"
+        super(NaveBuilder).naveProduct.imagemExplosao = Path.getPath() + "Imagem/Nave/NaveExplode.png"
     
  #   @override
     def buildSom(self):
-        self.nave.som = "/Som/MusicNave.wav"
+        super(NaveBuilder).naveProduct.som = Path.getPath() + "Som/MusicNave.wav"
     
 #    @override
     def buildNave(self):
-        self.nave.nave = FabricaNaveJogador(self.nave.imagemNave, 
-                                            self.nave.imagemExplosao,
-                                            self.nave.som)
+        super(NaveBuilder).naveProduct.naveFabrica = FabricaNaveJogador("Vai na fé",
+                                            self.naveProduct.imagemNave,
+                                            self.naveProduct.imagemExplosao,
+                                            self.naveProduct.som)

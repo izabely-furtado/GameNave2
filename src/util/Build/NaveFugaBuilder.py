@@ -3,13 +3,14 @@
 # and open the template in the editor.
 from src.util.Build.NaveBuilder import NaveBuilder
 from src.util.FabricaNave.FabricaNaveFuga import FabricaNaveFuga
+from src.cgd import Path
 
 __author__ = "IzabelyFurtado"
 __date__ = "$15/10/2015 20:23:00$"
 
 class NaveFugaBuilder(NaveBuilder):
     def __init__(self):
-        super()
+        super(NaveFugaBuilder, self).__init__()
         self.buildDano()
         self.buildImagemNave()
         self.buildImagemExplosao()
@@ -19,23 +20,23 @@ class NaveFugaBuilder(NaveBuilder):
     """--------------ATRIBUTO------------------------------------------------"""
 #    @override
     def buildDano(self):
-        self.nave.dano = 0
+        self.naveProduct.dano = 0
     
  #   @override
     def buildImagemNave(self):
-        self.nave.imagemNave = "/Imagens/NaveFuga.png"
+        self.naveProduct.imagemNave = Path.getPath() + "Imagem/Nave/NaveFuga.png"
     
  #   @override
     def buildImagemExplosao(self):
-        self.nave.imagemExplosao = "/Imagens/NaveExplode.png"
+        self.naveProduct.imagemExplosao = Path.getPath() + "Imagem/Nave/NaveExplode.png"
     
   #  @override
     def buildSom(self):
-        self.nave.som = "/Som/MusicNave.wav"
+        self.naveProduct.som = Path.getPath() + "Som/MusicNave.wav"
     
 #    @override
     def buildNave(self):
-        self.nave.nave = FabricaNaveFuga(self.nave.imagemNave, 
-                                         self.nave.imagemExplosao,
-                                         self.nave.som)
+        self.naveProduct.naveFabrica = FabricaNaveFuga(self.naveProduct.imagemNave,
+                                         self.naveProduct.imagemExplosao,
+                                         self.naveProduct.som)
     

@@ -6,7 +6,7 @@ from pygame.locals import *
 #import sys
 import random
 from src.cdp.Habilidades.Municao import Municao
-from src.cdp.Habilidades.Resitencia import Resistencia
+from src.cdp.Habilidades.Resistencia import Resistencia
 from src.util.FabricaNave.FabricaNaveInimiga import FabricaNaveInimiga
 
 __author__ = "IzabelyFurtado"
@@ -19,7 +19,7 @@ LIM_HEIGTH = HEIGTH - 50
 
 class FabricaNavePerdida(FabricaNaveInimiga):
     def __init__(self, figuraNave, figuraExplosao, som):
-        super('Nave Perdida', figuraNave, figuraExplosao, som)
+        super(FabricaNavePerdida).__init__('Nave Perdida', figuraNave, figuraExplosao, som)
         self.pontuacaoDerrotar = 20
         self.municao = self.criaMunicao()
 
@@ -42,8 +42,8 @@ class FabricaNavePerdida(FabricaNaveInimiga):
     
  #   @abc.override
     def atira(self):
-        if self.cria_tiro(self.posicao) != "ERRO":
-            self.cria_tiro(self.posicao)
+        if self.criaTiro(self.posicao) != "ERRO":
+            self.criaTiro(self.posicao)
         self.municao[-1].atira()
         self.buzina()
 

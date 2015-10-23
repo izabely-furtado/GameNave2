@@ -1,7 +1,6 @@
 #!/usr/local/bin/python
+from src.cci import Controle
 
-import CamadaControleInterface
-from CamadaControleInterface import Controle
 __version__ = "1.1"
 
 # -------------------------------------------------------------------------------
@@ -16,7 +15,7 @@ __author__ = 'Gislaine e Izabely'
 
 def main():
 
-    CamadaControleInterface.Controle.menu_inicial()
+    Controle.menu_inicial()
 
 if __name__ == '__main__':
     main()

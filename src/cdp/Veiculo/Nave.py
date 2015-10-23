@@ -2,8 +2,6 @@
 import pygame
 from pygame.locals import *
 import sys
-from CamadaDominioProblema.Habilidades import Resitencia
-from CamadaDominioProblema.Habilidades import Municao
 # -------------------------------------------------------------------------------
 # Name:        Nave Maluca 1.1
 # Author:      Gislaine e Izabely
@@ -11,6 +9,9 @@ from CamadaDominioProblema.Habilidades import Municao
 # Copyright:   (c) Gislaine e Izabely 2015
 # Licence:     GIZ
 # -------------------------------------------------------------------------------
+from src.cdp.Habilidades.Municao import Municao
+from src.cdp.Habilidades.Resistencia import Resistencia
+
 __author__ = 'Gislaine e Izabely'
 
 WIDTH = 1000
@@ -28,7 +29,7 @@ class Nave(object):
         self.figura = self.start_figura(figura)
         self.area = self.start_area()
         self.armamento = []
-        self.resistencia = Resitencia.Resistencia()
+        self.resistencia = Resistencia.Resistencia()
         self.atingido = False
 
     @staticmethod
@@ -36,7 +37,7 @@ class Nave(object):
 
         pygame.mixer.init(frequency=22050, size=-16, channels=2, buffer=4096)
 
-        return pygame.mixer.Sound("/home/gislaine/Dropbox/GameNave/CamadaGestaoDados/Som/MusicNave.wav")
+        return pygame.mixer.Sound("/home/gislaine/Dropbox/GameNave2.8-master/cgd/Som/MusicNave.wav")
 
     def cria_posicao(self):
         return {"x": 0, "y": 0}

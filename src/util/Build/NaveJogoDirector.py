@@ -5,7 +5,7 @@
 __author__ = "IzabelyFurtado"
 __date__ = "$17/10/2015 13:35:32$"
 
-class NaveJogoDirector():
+class NaveJogoDirector(object):
     def __init__(self, naveBuilder):
         self.montadora = naveBuilder
         

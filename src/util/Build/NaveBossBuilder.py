@@ -1,15 +1,13 @@
-# To change this license header, choose License Headers in Project Properties.
-# To change this template file, choose Tools | Templates
-# and open the template in the editor.
+from src.cgd import Path
 from src.util.Build.NaveBuilder import NaveBuilder
 from src.util.FabricaNave.FabricaNaveBoss import FabricaNaveBoss
 
-__author__ = "IzabelyFurtado"
-__date__ = "$15/10/2015 20:29:33$"
+__author__ = "IzabelyFurtado e GislaineAlmeida"
+
 
 class NaveBossBuilder(NaveBuilder):
     def __init__(self):
-        super()
+        super(NaveBossBuilder, self).__init__()
         self.buildDano()
         self.buildImagemNave()
         self.buildImagemExplosao()
@@ -17,24 +15,24 @@ class NaveBossBuilder(NaveBuilder):
         self.buildNave()
         
     """--------------ATRIBUTO------------------------------------------------"""
-#    @override
+    #    @override
     def buildDano(self):
-        self.nave.dano = 0
+        self.naveProduct.dano = 0
     
- #   @override
+    #   @override
     def buildImagemNave(self):
-        self.nave.imagemNave = "/Imagens/NaveBoss.png"
+        self.naveProduct.imagemNave = Path.getPath() + 'Imagem/Nave/NaveBoss.png'
     
- #   @override
+    #   @override
     def buildImagemExplosao(self):
-        self.nave.imagemExplosao = "/Imagens/NaveExplode.png"
+        self.naveProduct.imagemExplosao = Path.getPath() + 'Imagem/Nave/NaveExplode.png'
     
- #   @override
+    #   @override
     def buildSom(self):
-        self.nave.som = "/Som/MusicNave.wav"
-    
-#    @override
+        self.naveProduct.som = Path.getPath() + 'Som/MusicNave.wav'
+
+    #    @override
     def buildNave(self):
-        self.nave.nave = FabricaNaveBoss(self.nave.imagemNave, 
-                                         self.nave.imagemExplosao,
-                                         self.nave.som)
+        self.naveProduct.naveFabrica = FabricaNaveBoss(self.naveProduct.imagemNave,
+                                         self.naveProduct.imagemExplosao,
+                                         self.naveProduct.som)

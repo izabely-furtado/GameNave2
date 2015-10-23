@@ -2,11 +2,12 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 import pygame
+from pygame.rect import Rect
 
 __author__ = "IzabelyFurtado"
 __date__ = "$20/10/2015 09:17:54$"
 
-class FabricaObjeto():
+class FabricaObjeto(object):
     def __init__(self, nome, imagemEscolhida):
         self.nome = nome
         self.imagemObjeto = self.criaFigura(imagemEscolhida)
@@ -18,7 +19,7 @@ class FabricaObjeto():
     """-----------A�OES------------------------------------------------------"""
     def get_area(self):
         return self.area
-    
+
 #    @abc.override
     def move(self):
         self.posicao["y"] += self.velocidade["y"]
@@ -34,8 +35,8 @@ class FabricaObjeto():
         return {"x": 0, "y": 0, "direcao": "DIREITA"}
 
     def criaArea(self):
-        self.area = Rect(self.posicao["x"], self.posicao["y"], self.figura.get_width(), self.figura.get_height())
-        return Rect(self.posicao["x"], self.posicao["y"], self.figura.get_width(), self.figura.get_height())
-    
+        self.area = Rect(self.posicao["x"], self.posicao["y"], self.imagemObjeto.get_width(), self.imagemObjeto.get_height())
+        return Rect(self.posicao["x"], self.posicao["y"], self.imagemObjeto.get_width(), self.imagemObjeto.get_height())
+
     def criaVelocidade(self):
         return {"x": 0, "y": 2}

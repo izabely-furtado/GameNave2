@@ -8,7 +8,7 @@ __date__ = "$20/10/2015 08:14:09$"
 
 class FabricaClone(FabricaItem):
     def __init__(self, imagem):
-        super('Clone', imagem, 100, 6)
+        super(FabricaClone, self).__init__('Clone', imagem, 100, 6)
         
 #    @abstractmethod
     def modificacoes(self, jogador):

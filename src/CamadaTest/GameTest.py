@@ -1,5 +1,6 @@
-from CamadaDominioProblema.Habilidades import Municao
-from CamadaDominioProblema.Veiculo import Nave
+from src.cdp.Habilidades.Municao import Municao
+from src.cdp.Veiculo import Nave
+
 __author__ = 'IzabelyFurtado e GislaineJessica'
 
 import unittest

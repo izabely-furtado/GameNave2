@@ -1,4 +1,5 @@
 #!/usr/local/bin/python
+import random
 import pygame
 
 # -------------------------------------------------------------------------------
@@ -9,6 +10,8 @@ import pygame
 # Licence:     GIZ
 # -------------------------------------------------------------------------------
 import sys
+from pygame.rect import Rect
+from src.cgd import Path
 
 __author__ = 'Gislaine  e Izabely'
 
@@ -31,7 +34,14 @@ class Municao(object):
 
     @staticmethod
     def cria_figura():
-        figura = pygame.image.load("tiro3.png").convert_alpha()
+        aleatorio = random.randint(0, 10)
+
+        if 0 <= aleatorio <= 3:
+            figura = pygame.image.load(Path.getPath() + "Imagem/Tiro/tiro1.png").convert_alpha()
+        elif 4 <= aleatorio <= 6:
+            figura = pygame.image.load(Path.getPath() + "Imagem/Tiro/tiro2.png").convert_alpha()
+        else:
+            figura = pygame.image.load(Path.getPath() + "Imagem/Tiro/tiro3.png").convert_alpha()
 
         return figura
 
