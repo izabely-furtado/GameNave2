@@ -168,9 +168,30 @@ Alguns naves inimigas, além de implementarem as funções mencionadas, implemen
 
 <p>Assim, a partir disse a camada de aplicação da nave, chama em uma linha a função da CamadaControleInterface  a função que chama o menu inicial.</p>
 
-<p><strong>6.    Refatoração</strong></p>
+<p><strong>6.    Refatoração do Código - Avaliação SONAR</strong></p>
 
-<p>SONAR</p>
+<p><strong>Resultados do Sonar</strong></p>
+
+<p><strong>1. Na primeira versão</strong>
+<img src="https://github.com/izabely-furtado/GameNave2/blob/master/diagramas/sonar1.png?raw=true" alt="">
+<strong>2. Na segunda versão</strong>
+<img src="https://github.com/izabely-furtado/GameNave2/blob/master/diagramas/sonar2.png?raw=true" alt="">
+Os padrões de projeto, como já mencionados acima, ajudaram para que o código fosse melhor avaliado pelo sonar.</p>
+
+<p>Dado o uso do método fábrica, por exemplo, o nível de duplicação do código está em 0.0%. </p>
+
+<p>E, isso ocorreu mesmo com a criação de diversas novas classes referentes a objetos na tela em geral, tanto itens, quanto naves foram “fabricadas” de modo a fazer com que não houvesse essa duplicação. Dado a percepção do que havia em comum entre as classes.</p>
+
+<p>O padrão builder, assim como o fábrica funcionou dá mesma forma. Só que evidenciando fatores mutáveis nas naves.</p>
+
+<p>Além disso, funções escritas com poucas linhas de forma objetiva e intuitiva, além de ajudar na troca de código dentre o grupo, melhorou a nota referente a funções do sonar.
+Mas aplicar o padrão fez com que as linhas de código aumentassem e muito de início, no entanto, por exemplo, os padrões fábrica e builder facilitam caso queira se inserir uma nova classe com comportamento diferenciado. Essa facilidade é adquirida de duas formas:</p>
+
+<p>Considerando que já há um molde para a criação do novo objeto, não vai haver a “criação da roda” já que muitos quesitos simplesmente serão aproveitados.</p>
+
+<p>O aproveitamento do código já existente evita a duplicação</p>
+
+<p>Algumas partes do código, principalmente referente ao controle ainda estão complexas, mas isso pretende ser ajeitado na próxima versão. Assim como o padrão Singleton nas Fábricas</p>
 
 <p><strong>7.    Instalação</strong></p>
 
